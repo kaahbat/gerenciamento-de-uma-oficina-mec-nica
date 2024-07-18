@@ -1,8 +1,9 @@
 #pragma once
+#include "Funcionario.hpp"
 
-class mecanicos {
+class Mecanicos : public Funcionario {
 
 public:
-    mecanicos();
-    ~mecanicos();
+    Mecanicos();
+    ~Mecanicos();
 };

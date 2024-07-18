@@ -1,23 +1,25 @@
-CXX		  := g++
-CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
+# Variáveis
+CXX          := g++
+CXX_FLAGS     := -Wall -Wextra -std=c++17 -ggdb
 
-BIN		:= bin
-SRC		:= src
-INCLUDE	:= include
-LIB		:= lib
+BIN          := bin
+SRC          := src
+INCLUDE      := include
+LIB          := lib
 
-LIBRARIES	:=
-EXECUTABLE	:= main
+LIBRARIES    :=
+EXECUTABLE  := main.exe
 
-
+# Regra padrão
 all: $(BIN)/$(EXECUTABLE)
 
-run: clean all
-	clear
-	./$(BIN)/$(EXECUTABLE)
-
-$(BIN)/$(EXECUTABLE): $(SRC)/*.cpp
+# Regra para compilar o executável
+$(BIN)/$(EXECUTABLE): $(wildcard $(SRC)/*.cpp)
+	@echo "Compiling and Linking..."
+	if not exist $(BIN) mkdir $(BIN)
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
 
+# Regra para limpar os arquivos gerados
 clean:
-	-rm $(BIN)/*
+	@echo "Cleaning up..."
+	del /Q $(BIN)\$(EXECUTABLE)

@@ -1,8 +1,8 @@
 #pragma once
-
-class vendedores {
+#include "Funcionario.hpp"
+class Vendedores : public Funcionario {
 
 public:
-    vendedores();
-    ~vendedores();
+    Vendedores();
+    ~Vendedores();
 };

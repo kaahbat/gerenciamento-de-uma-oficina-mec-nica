@@ -1,9 +1,9 @@
-#include "vendedores.hpp"
+#include "Vendedores.hpp"
 
-vendedores::vendedores() {
+Vendedores::Vendedores() {
 
 }
 
-vendedores::~vendedores() {
+Vendedores::~Vendedores() {
 
 }

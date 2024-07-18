@@ -1,9 +1,9 @@
-#include "servicos.hpp"
+#include "Servicos.hpp"
 
-servicos::servicos() {
+Servicos::Servicos() {
 
 }
 
-servicos::~servicos() {
+Servicos::~Servicos() {
 
 }

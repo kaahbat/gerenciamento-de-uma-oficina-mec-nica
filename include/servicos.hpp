@@ -1,8 +1,8 @@
 #pragma once
 
-class servicos {
+class Servicos {
 
 public:
-    servicos();
-    ~servicos();
+    Servicos();
+    ~Servicos();
 };

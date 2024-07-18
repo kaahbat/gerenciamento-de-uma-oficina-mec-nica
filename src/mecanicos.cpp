@@ -1,9 +1,9 @@
-#include "mecanicos.hpp"
+#include "Mecanicos.hpp"
 
-mecanicos::mecanicos() {
+Mecanicos::Mecanicos() {
 
 }
 
-mecanicos::~mecanicos() {
+Mecanicos::~Mecanicos() {
 
 }

@@ -1,9 +1,9 @@
-#include "produtos.hpp"
+#include "Produtos.hpp"
 
-produtos::produtos() {
+Produtos::Produtos() {
 
 }
 
-produtos::~produtos() {
+Produtos::~Produtos() {
 
 }
