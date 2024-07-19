@@ -3,7 +3,15 @@
 
 class Mecanicos : public Funcionario {
 
+
 public:
-    Mecanicos();
+    Mecanicos(
+        int id,
+        string nome,
+        string cpf,
+        string telefone,
+        string email
+    );
     ~Mecanicos();
+    
 };

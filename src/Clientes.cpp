@@ -1,7 +1,19 @@
 #include "Clientes.hpp"
 
-Clientes::Clientes() {
 
+Clientes::Clientes(int id, const string & nome, const string & cpf, const string & telefone, const string & email, const string & rua, const string & bairro, const string & cidade, const string & estado, const string & cep, const string & numero)
+{
+    this->id = id;
+    this->nome = nome;
+    this->cpf = cpf;
+    this->telefone = telefone;
+    this->email = email;
+    this->rua = rua;
+    this->bairro = bairro;
+    this->cidade = cidade;
+    this->estado = estado;
+    this->cep = cep;
+    this->numero = numero;
 }
 
 Clientes::~Clientes() {
@@ -99,7 +111,7 @@ string Clientes::getNumero() const {
 }
 
 void Clientes::print() {
-    cout << "ID: " << id << endl;
+    cout << " Cliente: " << id << endl;
     cout << "Nome: " << nome << endl;
     cout << "CPF: " << cpf << endl;
     cout << "Telefone: " << telefone << endl;
@@ -110,4 +122,14 @@ void Clientes::print() {
     cout << "Estado: " << estado << endl;
     cout << "CEP: " << cep << endl;
     cout << "Numero: " << numero << endl;
+}
+
+void Clientes::addVeiculo(const Veiculos& veiculo) {
+    veiculos.push_back(veiculo);
+}
+
+void Clientes::printVeiculos() {
+    for (auto veiculo : veiculos) {
+        veiculo.print();
+    }
 }

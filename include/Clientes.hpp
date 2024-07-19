@@ -22,7 +22,20 @@ private:
 
 
 public:
-    Clientes();
+    Clientes(
+        int id,
+        const string& nome,
+        const string& cpf,
+        const string& telefone,
+        const string& email,
+        const string& rua,
+        const string& bairro,
+        const string& cidade,
+        const string& estado,
+        const string& cep,
+        const string& numero
+    );
+    
     ~Clientes();
     void setId(int id);
     void setNome(const string& nome);
@@ -51,5 +64,6 @@ public:
         
 
     void print();
+    void printVeiculos();
 
 };
