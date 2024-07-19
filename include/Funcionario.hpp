@@ -14,7 +14,13 @@ private:
 
     
 public:
-    Funcionario();
+    Funcionario(
+        int id,
+        string nome,
+        string cpf,
+        string telefone,
+        string email
+    );
     ~Funcionario(); 
     void setId(int id);
     int getId();

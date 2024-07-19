@@ -1,7 +1,12 @@
 #include "Funcionario.hpp"
 
-Funcionario::Funcionario() {
-
+Funcionario::Funcionario(int id, string nome, string cpf, string telefone, string email)
+{
+    this->id = id;
+    this->nome = nome;
+    this->cpf = cpf;
+    this->telefone = telefone;
+    this->email = email;
 }
 
 Funcionario::~Funcionario() {
