@@ -7,31 +7,35 @@ Vendedores::Vendedores(int id, string nome, string cpf, string telefone, string 
 
 Vendedores::~Vendedores() {
 
-
 }
 
 void Vendedores::addCliente(const Clientes & cliente)
 {
+    clientes.push_back(cliente);
 }
 
-void Vendedores::addServico(const Servicos & servico)
+void Vendedores::addOrdemServico(const OrdemServico & ordemServico)
 {
+    servicos.push_back(ordemServico);
 }
+
 
 vector<Clientes> Vendedores::getClientes()
 {
-return vector<Clientes>();
+    return vector<Clientes>();
 }
 
-vector<Servicos> Vendedores::getServicos()
+vector<OrdemServico> Vendedores::getOrdemServico()
 {
-return vector<Servicos>();
+    return vector<OrdemServico>();
 }
 
 void Vendedores::removeCliente(int id)
 {
+    clientes.erase(clientes.begin() + id);
 }
 
-void Vendedores::removeServico(int id)
+void Vendedores::removeOrdemServico(int id)
 {
+    servicos.erase(servicos.begin() + id);
 }

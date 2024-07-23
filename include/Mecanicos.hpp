@@ -3,7 +3,6 @@
 
 class Mecanicos : public Funcionario {
 
-
 public:
     Mecanicos(
         int id,
