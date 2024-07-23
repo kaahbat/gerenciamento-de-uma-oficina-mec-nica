@@ -1,12 +1,5 @@
 #pragma once
 #include "Funcionario.hpp"
-<<<<<<< HEAD
-class Vendedores : public Funcionario {
-
-public:
-    Vendedores();
-    ~Vendedores();
-=======
 #include "Clientes.hpp"
 #include "Veiculos.hpp"
 #include "Servicos.hpp"
@@ -33,5 +26,4 @@ public:
 
 
     
->>>>>>> 0b1f79af4c67693555aad02fbf0b2a53a4f9dab8
 };
