@@ -19,5 +19,15 @@ public:
         string descricao
        
     );
+    void addServico(const Servicos& servico);
+    void removeServico(int id);
+    vector<Servicos> getServicos();
+    bool execultarOrdemServico();
+    bool finalizarOrdemServico();
+    bool cancelarOrdemServico();
+
+    void print();
+
+
     ~OrdemServico();
 };

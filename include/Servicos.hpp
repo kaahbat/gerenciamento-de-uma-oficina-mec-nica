@@ -33,6 +33,11 @@ public:
     float getValor();
     string getData();
     string getStatus();
+
+    void execultarServico();
+    void finalizarServico();
+    void cancelarServico();
+
     void print();
 
 };

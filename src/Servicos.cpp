@@ -53,11 +53,30 @@ string Servicos::getStatus() {
     return this->status;
 }
 
-void Servicos::print() {
+void Servicos::execultarServico()
+{
+    cout << "Servico executado" << endl;
+    setStatus("Executado");
+
+}
+
+void Servicos::finalizarServico()
+{
+    cout << "Servico finalizado" << endl;
+    setStatus("Finalizado");
+}
+
+void Servicos::cancelarServico()
+{
+    cout << "Servico cancelado" << endl;
+    setStatus("Cancelado");
+}
+
+void Servicos::print()
+{
     cout << "ID: " << this->id << endl;
     cout << "Descricao: " << this->descricao << endl;
     cout << "Valor: " << this->valor << endl;
     cout << "Data: " << this->data << endl;
     cout << "Status: " << this->status << endl;
 }
-

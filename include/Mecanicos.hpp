@@ -1,7 +1,12 @@
 #pragma once
 #include "Funcionario.hpp"
+#include "OrdemServico.hpp"
+
 
 class Mecanicos : public Funcionario {
+
+private:
+    
 
 public:
     Mecanicos(
@@ -12,5 +17,7 @@ public:
         string email
     );
     ~Mecanicos();
+    
+    
     
 };
