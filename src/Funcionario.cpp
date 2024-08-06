@@ -1,7 +1,7 @@
 #include "Funcionario.hpp"
 
-Funcionario::Funcionario(int id, string nome, string cpf, string telefone, string email)
-{
+Funcionario::Funcionario(const string& login,const string& senha ,int id, string nome, string cpf, string telefone, string email) : login(login),senha(senha)
+{  
     this->id = id;
     this->nome = nome;
     this->cpf = cpf;
@@ -9,9 +9,16 @@ Funcionario::Funcionario(int id, string nome, string cpf, string telefone, strin
     this->email = email;
 }
 
+
+bool Funcionario::autenticar(string &login, string &senha)
+{
+    return (this->login == login && this->senha == senha);
+}
+
 Funcionario::~Funcionario() {
 
 }
+
 
 void Funcionario::setId(int id)
 {

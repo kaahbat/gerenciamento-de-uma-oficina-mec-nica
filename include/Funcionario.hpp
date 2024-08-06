@@ -4,8 +4,10 @@ using namespace std;
 
 class Funcionario {
 
-private:
-
+protected:
+    string login;
+    string senha;
+private:    
     int id;
     string nome;
     string cpf;
@@ -15,13 +17,18 @@ private:
     
 public:
     Funcionario(
+        const string& login,
+        const string& senha,
         int id,
         string nome,
         string cpf,
         string telefone,
         string email
     );
-    ~Funcionario(); 
+    ~Funcionario();
+    virtual bool autenticar(string& login, string& senha); 
+    virtual string getTipo() const = 0;
+    
     void setId(int id);
     int getId();
     void setNome(string nome);

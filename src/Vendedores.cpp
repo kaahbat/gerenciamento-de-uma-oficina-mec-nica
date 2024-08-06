@@ -1,7 +1,7 @@
 #include "Vendedores.hpp"
 
 
-Vendedores::Vendedores(int id, string nome, string cpf, string telefone, string email): Funcionario(id, nome, cpf, telefone, email){
+Vendedores::Vendedores(const string& login,const string& senha,int id, string nome, string cpf, string telefone, string email): Funcionario(login, senha, id, nome, cpf, telefone, email){
 
 }
 
@@ -38,4 +38,9 @@ void Vendedores::removeCliente(int id)
 void Vendedores::removeOrdemServico(int id)
 {
     servicos.erase(servicos.begin() + id);
+}
+
+string Vendedores::getTipo() const
+{
+    return "Vendedor";
 }

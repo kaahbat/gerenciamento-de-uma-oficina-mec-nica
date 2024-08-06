@@ -14,8 +14,18 @@ private:
     
 
 public:
-    Vendedores(int id, string nome, string cpf, string telefone, string email);
+    Vendedores(
+        const string& login,
+        const string& senha,
+        int id, 
+        string nome, 
+        string cpf, 
+        string telefone, 
+        string email
+    );
     ~Vendedores();
+    string getTipo() const override;
+    
     void addCliente(const Clientes& cliente);
     void addOrdemServico(const OrdemServico& ordemServico);
     vector<Clientes> getClientes();

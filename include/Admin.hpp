@@ -1,26 +1,21 @@
 #pragma once
 #include "Funcionario.hpp"
-#include "OrdemServico.hpp"
 
 
-class Mecanicos : public Funcionario {
-
-private:
-    
+using namespace std;
+class Admin : public Funcionario{
 
 public:
-    Mecanicos(
+    Admin(
         const string& login,
-        const string& senha,
+        const string& senha,       
         int id,
         string nome,
         string cpf,
         string telefone,
         string email
     );
-    ~Mecanicos();
+    ~Admin();
     string getTipo() const override;
-    
-    
-    
+    void gerenciarSistema() const;
 };
