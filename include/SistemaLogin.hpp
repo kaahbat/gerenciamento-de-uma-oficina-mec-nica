@@ -8,7 +8,6 @@ private:
 public:
     SistemaLogin();
     void addUsuario(Funcionario* usuario);
-    void removeUsuario(string login);
-    Funcionario* autenticar(const string login, const string senha) const;
+    Funcionario* autenticar(string& login, string& senha) const;
     ~SistemaLogin();
 };

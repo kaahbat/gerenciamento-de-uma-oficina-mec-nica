@@ -19,7 +19,7 @@ void OrdemServico::addServico(const Servicos &servico)
 
 void OrdemServico::removeServico(int id)
 {
-    for (int i = 0; i < this->servicos.size(); i++)
+    for (size_t i = 0; i < this->servicos.size(); i++)
     {
         if (this->servicos[i].getId() == id)
         {
@@ -36,7 +36,7 @@ vector<Servicos> OrdemServico::getServicos()
 
 bool OrdemServico::execultarOrdemServico()
 {
-    for (int i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
+    for (size_t i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
     {
         this->servicos[i].execultarServico();//execulta o servico
         
@@ -47,7 +47,7 @@ bool OrdemServico::execultarOrdemServico()
 
 bool OrdemServico::finalizarOrdemServico()
 {
-    for (int i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
+    for (size_t i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
     {
         this->servicos[i].finalizarServico();//finaliza o servico
         
@@ -57,7 +57,7 @@ bool OrdemServico::finalizarOrdemServico()
 
 bool OrdemServico::cancelarOrdemServico()
 {
-    for (int i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
+    for (size_t i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
     {
         this->servicos[i].cancelarServico();//cancela o servico
         
@@ -71,7 +71,7 @@ void OrdemServico::print()
     cout << "Data: " << this->data << endl;
     cout << "Descricao: " << this->descricao << endl;
     cout << "Servicos: " << endl;
-    for (int i = 0; i < this->servicos.size(); i++)
+    for (size_t i = 0; i < this->servicos.size(); i++)
     {
         this->servicos[i].print();
     }

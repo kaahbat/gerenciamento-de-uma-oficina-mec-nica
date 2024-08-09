@@ -16,7 +16,7 @@ bool Funcionario::autenticar(string &login, string &senha)
 }
 
 Funcionario::~Funcionario() {
-
+    
 }
 
 

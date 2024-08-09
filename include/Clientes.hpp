@@ -61,8 +61,6 @@ public:
     string getEstado() const;
     string getCep() const;
     string getNumero() const;
-        
-
     void print();
     void printVeiculos();
 
