@@ -19,6 +19,26 @@ Funcionario::~Funcionario() {
     
 }
 
+void Funcionario::setLogin(string login)
+{
+    this->login = login;
+}
+
+string Funcionario::getLogin()
+{
+    return login;
+}
+
+void Funcionario::setSenha(string senha)
+{
+    this->senha = senha;
+}
+
+string Funcionario::getSenha()
+{
+    return senha;
+}
+
 
 void Funcionario::setId(int id)
 {
@@ -37,7 +57,7 @@ void Funcionario::setNome(string nome)
 
 string Funcionario::getNome()
 {
-    return string();
+    return nome;
 }
 
 void Funcionario::setCpf(string cpf)
@@ -47,7 +67,7 @@ void Funcionario::setCpf(string cpf)
 
 string Funcionario::getCpf()
 {
-    return string();
+    return cpf;
 }
 
 void Funcionario::setTelefone(string telefone)
@@ -57,7 +77,7 @@ void Funcionario::setTelefone(string telefone)
 
 string Funcionario::getTelefone()
 {
-    return string();
+    return telefone;
 }
 
 void Funcionario::setEmail(string email)
@@ -67,8 +87,11 @@ void Funcionario::setEmail(string email)
 
 string Funcionario::getEmail()
 {
-    return string();
+    return email;
 }
+
+
+
 
 void Funcionario::print()
 {

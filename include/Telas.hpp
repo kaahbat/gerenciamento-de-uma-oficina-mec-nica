@@ -13,6 +13,8 @@ using namespace std;
 
 class Telas {
 
+
+
 public:
     Telas();
     ~Telas();
@@ -22,7 +24,7 @@ public:
     void menuFuncionarios();
     void menuMecanicos();
     void menuVendedores();
-    void menuAdmin();
+    void menuAdmin(Funcionario* admin, SistemaLogin* sistema);
     void menuLogin();
 
 

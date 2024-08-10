@@ -29,6 +29,11 @@ public:
     virtual bool autenticar(string& login, string& senha); 
     virtual string getTipo() const = 0;
     
+    void setLogin(string login);
+    string getLogin();
+    void setSenha(string senha);
+    string getSenha();
+    
     void setId(int id);
     int getId();
     void setNome(string nome);
