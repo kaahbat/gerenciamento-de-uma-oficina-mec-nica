@@ -13,9 +13,10 @@ public:
     vector<Funcionario*> getUsuarios() const;
     vector<Funcionario*> getMecanicos() const;
     vector<Funcionario*> getVendedores() const;
-    void setUsuario(int id, Funcionario* usuario);
+    void setUsuario(int id, Funcionario* usuarioEditado);
     int getQuantosVendedores();
     int getQuantosMecanicos();
     ~SistemaLogin();
+    
 
 };

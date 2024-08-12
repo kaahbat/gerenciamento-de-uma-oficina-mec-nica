@@ -47,7 +47,7 @@ void Funcionario::setId(int id)
 
 int Funcionario::getId()
 {
-    return 0;
+    return id;
 }
 
 void Funcionario::setNome(string nome)

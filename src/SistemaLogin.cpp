@@ -61,11 +61,18 @@ vector<Funcionario *> SistemaLogin::getVendedores() const
 }
 
 
-void SistemaLogin::setUsuario(int id, Funcionario *usuario)
+
+
+void SistemaLogin::setUsuario(int id, Funcionario *usuarioEditado)
 {
-    for (auto& u : usuarios) {
-        if (u->getId() == id) {
-            u = usuario;
+    for(auto& usuario : usuarios) {
+        if(usuario->getId() == id) {
+            printf("Usuario encontrado\n");
+            printf("Usuario editado: %s\n", usuarioEditado->getNome().c_str());
+            printf("Usuario original: %s\n", usuario->getNome().c_str());
+            printf("Usuario original: %s\n", usuario->getTipo().c_str());
+            printf("Usuario editado: %s\n", usuarioEditado->getTipo().c_str());
+            usuario = usuarioEditado;
         }
     }
 }
