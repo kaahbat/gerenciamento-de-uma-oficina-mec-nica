@@ -112,7 +112,7 @@ void Telas::menuVendedores(SistemaLogin* sistema, Vendedores* vendedor)
             case 1:
                 // Cadastrar cliente e veículo
                 cout << "----- CADASTRAR CLIENTE ---- " << endl;
-                string nome, cpf, telefone, email;
+                string nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero;
                 cout << "Digite o nome do cliente: ";
                 cin >> nome;
                 cout << "Digite o CPF do cliente: ";
@@ -121,7 +121,41 @@ void Telas::menuVendedores(SistemaLogin* sistema, Vendedores* vendedor)
                 cin >> telefone;
                 cout << "Digite o email do cliente: ";
                 cin >> email;
-                vendedor->addCliente(Clientes(sistema->getQuantosClientes()+1, nome, cpf, telefone, email));
+                cout << "Digite a rua do cliente: ";
+                cin >> rua;
+                cout << "Digite o bairro do cliente: ";
+                cin >> bairro;
+                cout << "Digite a cidade do cliente: ";
+                cin >> cidade;
+                cout << "Digite o estado do cliente: ";
+                cin >> estado;
+                cout << "Digite o cep do cliente: ";
+                cin >> cep;
+                cout << "Digite o numero do cliente: ";
+                cin >> numero;
+                vendedor->addCliente(Clientes(vendedor->getQuantosClientes()+1, nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero));
+                cout << "Cliente cadastrado com sucesso!" << endl;
+
+                cout << "----- CADASTRAR VEÍCULO ---- " << endl;
+                string marca, modelo, ano, placa, cor, combustivel, status;
+                int km;
+                cout << "Digite a marca do veículo: ";
+                cin >> marca;
+                cout << "Digite o modelo do veículo: ";
+                cin >> modelo;
+                cout << "Digite o ano do veículo: ";
+                cin >> ano;
+                cout << "Digite a placa do veículo: ";
+                cin >> placa;
+                cout << "Digite a cor do veículo: ";
+                cin >> cor;
+                cout << "Digite o combustível do veículo: ";
+                cin >> combustivel;
+                cout << "Digite o status do veículo: ";
+                cin >> status;
+                cout << "Digite a quilometragem do veículo: ";
+                cin >> km;
+    
                 //sistema->addCliente(new Clientes(sistema->getQuantosClientes()+1, nome, cpf, telefone, email));
                 
                 break;

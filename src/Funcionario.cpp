@@ -19,6 +19,8 @@ Funcionario::~Funcionario() {
     
 }
 
+
+
 void Funcionario::setLogin(string login)
 {
     this->login = login;
@@ -86,12 +88,9 @@ void Funcionario::setEmail(string email)
 }
 
 string Funcionario::getEmail()
-{
+{    
     return email;
 }
-
-
-
 
 void Funcionario::print()
 {

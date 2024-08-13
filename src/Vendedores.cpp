@@ -40,6 +40,13 @@ void Vendedores::removeOrdemServico(int id)
     servicos.erase(servicos.begin() + id);
 }
 
+int Vendedores::getQuantosClientes()
+{
+    return clientes.size();
+}
+
+
+
 string Vendedores::getTipo() const
 {
     return "Vendedor";
