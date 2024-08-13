@@ -7,7 +7,9 @@ class Funcionario {
 protected:
     string login;
     string senha;
-private:    
+    vector<Clientes> clientes;
+    vector<OrdemServico> servicos;   
+private:
     int id;
     string nome;
     string cpf;
@@ -44,6 +46,10 @@ public:
     string getTelefone();
     void setEmail(string email);
     string getEmail();
+
+    virtual void addCliente(const Clientes& cliente) const = 0;
+    virtual void addServico(const OrdemServico& servico) const = 0;
+        
     void print();
 
 

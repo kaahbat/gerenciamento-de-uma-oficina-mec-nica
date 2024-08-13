@@ -18,7 +18,7 @@ Funcionario *SistemaLogin::autenticar(string& login, string& senha) const
     }
     return nullptr;
 }
-
+/*
 Funcionario *SistemaLogin::getUsuario(int id) const
 {
     for (const auto& u : usuarios) {
@@ -27,7 +27,7 @@ Funcionario *SistemaLogin::getUsuario(int id) const
         }
     }
     return nullptr;
-}
+}*/
 
 SistemaLogin::~SistemaLogin() {
     
@@ -62,7 +62,7 @@ vector<Funcionario *> SistemaLogin::getVendedores() const
 
 
 
-
+/// tirar essa funçao
 void SistemaLogin::setUsuario(int id, Funcionario *usuarioEditado)
 {
     for(auto& usuario : usuarios) {
@@ -98,4 +98,21 @@ int SistemaLogin::getQuantosMecanicos()
         }
     }
     return cont;
+}
+
+int SistemaLogin::getQuantosUsuarios()
+{
+    
+
+    return usuarios.size();
+}
+
+void SistemaLogin::removeUsuario(int id)
+{
+    for (auto it = usuarios.begin(); it != usuarios.end(); it++) {
+        if ((*it)->getId() == id) {
+            usuarios.erase(it);
+            break;
+        }
+    }
 }

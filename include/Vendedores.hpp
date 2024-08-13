@@ -9,8 +9,7 @@
 class Vendedores : public Funcionario {
 
 private:
-    vector<Clientes> clientes;
-    vector<OrdemServico> servicos;
+    
     
 
 public:

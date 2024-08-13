@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
-using namespace std;
-#include <iostream>
 #include <string>
 #include <vector>
+
+using namespace std;
+
 #include "../include/Funcionario.hpp"
 #include "../include/Admin.hpp"
 #include "../include/Mecanicos.hpp"
@@ -12,7 +13,8 @@ using namespace std;
 
 
 class Telas {
-
+private:
+SistemaLogin *sistema = new SistemaLogin();
 
 
 public:
@@ -23,7 +25,7 @@ public:
     void menuVeiculos();
     void menuFuncionarios();
     void menuMecanicos();
-    void menuVendedores();
+    void menuVendedores( SistemaLogin* sistema, Vendedores* vendedor);
     void menuAdmin(SistemaLogin* sistema);
     void menuLogin();
 
