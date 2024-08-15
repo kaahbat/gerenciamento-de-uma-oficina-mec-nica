@@ -124,6 +124,9 @@ void Clientes::print() {
     cout << "Numero: " << numero << endl;
 }
 
+void Clientes::addVeiculo(const Veiculos& veiculo) {
+    veiculos.push_back(veiculo);
+}
 
 void Clientes::printVeiculos() {
     for (auto veiculo : veiculos) {

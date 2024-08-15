@@ -22,7 +22,5 @@ public:
     string getTipo() const override;
     
     
-
-    
     
 };

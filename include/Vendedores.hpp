@@ -1,6 +1,8 @@
 #pragma once
 #include "Funcionario.hpp"
-
+#include "Clientes.hpp"
+#include "Veiculos.hpp"
+#include "OrdemServico.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -29,8 +31,6 @@ public:
     vector<OrdemServico> getOrdemServico();
     void removeCliente(int id);
     void removeOrdemServico(int id);
-    int getQuantosClientes();
-
     
 
 
