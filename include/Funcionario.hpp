@@ -1,5 +1,9 @@
 #pragma once
 #include <iostream>
+#include <vector>
+#include "Clientes.hpp"
+#include "OrdemServico.hpp"
+
 using namespace std;
 
 class Funcionario {
@@ -47,8 +51,7 @@ public:
     void setEmail(string email);
     string getEmail();
 
-    virtual void addCliente(const Clientes& cliente) const = 0;
-    virtual void addServico(const OrdemServico& servico) const = 0;
+    
         
     void print();
 
