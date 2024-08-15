@@ -17,7 +17,9 @@ Clientes::Clientes(int id, const string & nome, const string & cpf, const string
 }
 
 Clientes::~Clientes() {
-
+    for (auto veiculo : veiculos) {
+        delete veiculo;
+    }
 }
 
 // Setters
@@ -63,6 +65,21 @@ void Clientes::setCep(const string& cep) {
 
 void Clientes::setNumero(const string& numero) {
     this->numero = numero;
+}
+
+void Clientes::addVeiculo(Veiculos *veiculo)
+{
+    veiculos.push_back(veiculo);
+}
+
+int Clientes::getQuantosVeiculos()
+{
+    return veiculos.size();
+}
+
+vector<Veiculos *> Clientes::getVeiculos()
+{
+    return veiculos;
 }
 
 // Getters
@@ -127,6 +144,6 @@ void Clientes::print() {
 
 void Clientes::printVeiculos() {
     for (auto veiculo : veiculos) {
-        veiculo.print();
+        veiculo->print();
     }
 }

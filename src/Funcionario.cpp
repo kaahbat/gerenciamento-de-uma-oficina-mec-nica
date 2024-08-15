@@ -15,6 +15,19 @@ bool Funcionario::autenticar(string &login, string &senha)
     return (this->login == login && this->senha == senha);
 }
 
+void Funcionario::addCliente(Clientes cliente)
+{
+}
+
+vector<Clientes *> Funcionario::getClientes()
+{
+    
+}
+
+void Funcionario::addOrdemServico(OrdemServico *ordemServico)
+{
+}
+
 Funcionario::~Funcionario() {
     
 }

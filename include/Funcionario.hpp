@@ -1,18 +1,19 @@
 #pragma once
 #include <iostream>
-using namespace std;
-#include "Clientes.hpp"
-#include "Veiculos.hpp"
-#include "OrdemServico.hpp"
+#include "../include/Clientes.hpp"
+#include "../include/OrdemServico.hpp"
+#include <string>
 #include <vector>
+using namespace std;
+
 
 class Funcionario {
 
 protected:
     string login;
     string senha;
-    vector<Clientes> clientes;
-    vector<OrdemServico> servicos;   
+    vector<Clientes*> clientes; 
+    vector<OrdemServico*> ordemServicos;   
 private:
     int id;
     string nome;
@@ -34,7 +35,15 @@ public:
     ~Funcionario();
     virtual bool autenticar(string& login, string& senha); 
     virtual string getTipo() const = 0;
+    virtual void addCliente(Clientes cliente) ;
+
+    virtual vector<Clientes*> getClientes();
     
+    virtual void addOrdemServico(OrdemServico* ordemServico) ;
+    virtual vector<OrdemServico*> getOrdemServico();
+    virtual void removeCliente(int id);
+    virtual int getQuantosClientes() ;
+
     void setLogin(string login);
     string getLogin();
     void setSenha(string senha);

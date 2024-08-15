@@ -1,11 +1,17 @@
 #include "OrdemServico.hpp"
 
 
-OrdemServico::OrdemServico(int id, string data, string descricao)
+OrdemServico::OrdemServico(int id, string data, string descricao, string status, string cliente, string veiculo) 
 {
     this->id = id;
     this->data = data;
     this->descricao = descricao;
+    this->status = status;
+    this->cliente = cliente;
+    this->veiculo = veiculo;
+
+
+
 }
 
 OrdemServico::~OrdemServico()
