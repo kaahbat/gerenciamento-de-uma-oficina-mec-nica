@@ -11,21 +11,12 @@ class OrdemServico {
         int id;
         string data;
         string descricao;
-        string status;
-        string cliente;
-        string veiculo;
-        string valorTotal;
         vector<Servicos> servicos;
 public:
     OrdemServico(
         int id,
         string data,
-        string descricao,
-        string status,
-        string cliente,
-        string veiculo,
-        string valorTotal
-
+        string descricao
        
     );
     void addServico(const Servicos& servico);

@@ -1,22 +1,16 @@
 #pragma once
-#include "../include/Funcionario.hpp"
-#include "../include/Clientes.hpp"
-#include "../include/OrdemServico.hpp"
-
-// Add the include for OrdemServico.hpp
-#include "../include/OrdemServico.hpp"
-
-
-
+#include "Funcionario.hpp"
 
 #include <iostream>
 #include <string>
 #include <vector>
 class Vendedores : public Funcionario {
 
+private:
+    
+    
 
 public:
- 
     Vendedores(
         const string& login,
         const string& senha,
@@ -29,14 +23,13 @@ public:
     ~Vendedores();
     string getTipo() const override;
     
-    void addCliente(Clientes cliente);
-    vector<Clientes*> getClientes();
-    void addOrdemServico(OrdemServico* ordemServico);
-    vector<OrdemServico*> getOrdemServico();
-    int getQuantasOrdens();
+    void addCliente(const Clientes& cliente);
+    void addOrdemServico(const OrdemServico& ordemServico);
+    vector<Clientes> getClientes();
+    vector<OrdemServico> getOrdemServico();
     void removeCliente(int id);
+    void removeOrdemServico(int id);
     int getQuantosClientes();
-    
 
     
 

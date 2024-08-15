@@ -68,7 +68,7 @@ void Telas::menuLogin()
         } else if (usuarioAutenticado->getTipo() == "Mecanico") {
             menuMecanicos();
         } else if (usuarioAutenticado->getTipo() == "Vendedor") {
-            menuVendedores(sistema, usuarioAutenticado);
+            menuVendedores(sistema,(Vendedores*)usuarioAutenticado);
         }
     } else {
         cout << "Usuário ou senha incorretos." << endl;
@@ -96,12 +96,10 @@ void Telas::menuMecanicos()
     printf("mecanico\n");   
 }
 
-void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
+void Telas::menuVendedores(SistemaLogin* sistema, Vendedores* vendedor)
 {
     int opcao;
     do {
-        
-        
         cout << "----- MENU VENDEDOR -----" << endl;
         cout << "1. Cadastrar cliente e veículo" << endl;
         cout << "2. Gerar ordem de serviço" << endl;
@@ -112,69 +110,58 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
 
         switch (opcao) {
             case 1:
-                {/*
-                    // Cadastrar cliente e veículo
-                    string nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero;
-                    string marca, modelo, ano, placa, cor, combustivel, status;
-                    int km;
-                    cout << "----- CADASTRAR CLIENTE ---- " << endl;
-                    cout << "Digite o nome do cliente: ";
-                    cin >> nome;
-                    cout << "Digite o CPF do cliente: ";
-                    cin >> cpf;
-                    cout << "Digite o telefone do cliente: ";
-                    cin >> telefone;
-                    cout << "Digite o email do cliente: ";
-                    cin >> email;
-                    cout << "Digite a rua do cliente: ";
-                    cin >> rua;
-                    cout << "Digite o bairro do cliente: ";
-                    cin >> bairro;
-                    cout << "Digite a cidade do cliente: ";
-                    cin >> cidade;
-                    cout << "Digite o estado do cliente: ";
-                    cin >> estado;
-                    cout << "Digite o cep do cliente: ";
-                    cin >> cep;
-                    cout << "Digite o numero do cliente: ";
-                    cin >> numero;
-                    Clientes cliente (vendedor->getQuantosClientes()+1, nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero);
-                    vendedor->addCliente(cliente);
-                    cout << "Cliente cadastrado com sucesso!" << endl;
-                    int opcaoV;
-                    do {
-                    
-                        cout << "----- CADASTRAR VEÍCULO ---- " << endl;
-                        cout << "Digite a marca do veículo: ";
-                        cin >> marca;
-                        cout << "Digite o modelo do veículo: ";
-                        cin >> modelo;
-                        cout << "Digite o ano do veículo: ";
-                        cin >> ano;
-                        cout << "Digite a placa do veículo: ";
-                        cin >> placa;
-                        cout << "Digite a cor do veículo: ";
-                        cin >> cor;
-                        cout << "Digite o combustível do veículo: ";
-                        cin >> combustivel;
-                        cout << "Digite o status do veículo: ";
-                        cin >> status;
-                        cout << "Digite a quilometragem do veículo: ";
-                        cin >> km;
-                        cliente.addVeiculo(new Veiculos(cliente.getQuantosVeiculos()+1, placa, marca, modelo, cor, ano, km, combustivel, status));
-                        cout << "Veículo cadastrado com sucesso!" << endl;
-                        cout << "Deseja adicionar mais veículos para este cliente?" << endl;
-                        cout << "1. Sim" << endl;
-                        cout << "2. Não" << endl;
-                        cout << "Escolha uma opção: ";
-                        cin >> opcaoV;
-                    } while (opcaoV==1);
-                  */  
-                }
+                // Cadastrar cliente e veículo
+                cout << "----- CADASTRAR CLIENTE ---- " << endl;
+                string nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero;
+                cout << "Digite o nome do cliente: ";
+                cin >> nome;
+                cout << "Digite o CPF do cliente: ";
+                cin >> cpf;
+                cout << "Digite o telefone do cliente: ";
+                cin >> telefone;
+                cout << "Digite o email do cliente: ";
+                cin >> email;
+                cout << "Digite a rua do cliente: ";
+                cin >> rua;
+                cout << "Digite o bairro do cliente: ";
+                cin >> bairro;
+                cout << "Digite a cidade do cliente: ";
+                cin >> cidade;
+                cout << "Digite o estado do cliente: ";
+                cin >> estado;
+                cout << "Digite o cep do cliente: ";
+                cin >> cep;
+                cout << "Digite o numero do cliente: ";
+                cin >> numero;
+                vendedor->addCliente(Clientes(vendedor->getQuantosClientes()+1, nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero));
+                cout << "Cliente cadastrado com sucesso!" << endl;
+
+                cout << "----- CADASTRAR VEÍCULO ---- " << endl;
+                string marca, modelo, ano, placa, cor, combustivel, status;
+                int km;
+                cout << "Digite a marca do veículo: ";
+                cin >> marca;
+                cout << "Digite o modelo do veículo: ";
+                cin >> modelo;
+                cout << "Digite o ano do veículo: ";
+                cin >> ano;
+                cout << "Digite a placa do veículo: ";
+                cin >> placa;
+                cout << "Digite a cor do veículo: ";
+                cin >> cor;
+                cout << "Digite o combustível do veículo: ";
+                cin >> combustivel;
+                cout << "Digite o status do veículo: ";
+                cin >> status;
+                cout << "Digite a quilometragem do veículo: ";
+                cin >> km;
+    
+                //sistema->addCliente(new Clientes(sistema->getQuantosClientes()+1, nome, cpf, telefone, email));
+                
                 break;
             case 2:
                 // Gerar ordem de serviço
-                {/*
+                {
                     int opcaoCliente;
                     for (int i = 0; i < vendedor->getQuantosClientes(); i++) {
                         cout << i+1 << ". " << vendedor->getClientes()[i]->getNome() << endl;
@@ -191,22 +178,22 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
                         cin >> opcaoVeiculo;
                         if (opcaoVeiculo > 0 && opcaoVeiculo <= vendedor->getClientes()[opcaoCliente-1]->getQuantosVeiculos()) {
                             string descricao;
-                            cout << "Digite a descrição dos serviços: ";
+                            cout << "Digite a descrição do serviço: ";
                             cin.ignore();
                             getline(cin, descricao);
                             cout << "Digite a data do serviço: ";
                             string data;
                             cin >> data;
-                            string status = "Pendente";
-                         
-                            vendedor->addOrdemServico(new OrdemServico(vendedor->getQuantasOrdens()+1,data,descricao,status,vendedor->getClientes()[opcaoCliente-1]->getNome(),vendedor->getClientes()[opcaoCliente-1]->getVeiculos()[opcaoVeiculo-1]->getPlaca(),0));
+                            string status = "Pendente";                            
+                            vendedor->addOrdemServico(new OrdemServico(vendedor->getOrdemServico().size()+1,data, descricao,status, vendedor->getClientes()[opcaoCliente-1], vendedor->getClientes()[opcaoCliente-1]->getVeiculos()[opcaoVeiculo-1]));
+
                             cout << "Ordem de serviço gerada com sucesso!" << endl;
                         } else {
                             cout << "Opção inválida. Tente novamente." << endl;
                         }
                     } else {
                         cout << "Opção inválida. Tente novamente." << endl;
-                    }*/
+                    }
                 }
                 break;
             case 3:

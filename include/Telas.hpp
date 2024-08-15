@@ -26,7 +26,7 @@ public:
     void menuVeiculos();
     void menuFuncionarios();
     void menuMecanicos();
-    void menuVendedores( SistemaLogin* sistema, Funcionario* vendedor);
+    void menuVendedores( SistemaLogin* sistema, Vendedores* vendedor);
     void menuAdmin(SistemaLogin* sistema);
     void menuLogin();
 

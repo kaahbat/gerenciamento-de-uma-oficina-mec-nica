@@ -18,7 +18,7 @@ private:
     string estado;
     string cep;
     string numero;
-    vector<Veiculos*> veiculos; // Relacionamento com veiculos pois um cliente pode ter vários veículos
+    vector<Veiculos> veiculos; // Relacionamento com veiculos pois um cliente pode ter vários veículos
 
 
 public:
@@ -35,7 +35,7 @@ public:
         const string& cep,
         const string& numero
     );
-    Clientes();
+    
     ~Clientes();
     void setId(int id);
     void setNome(const string& nome);
@@ -48,12 +48,8 @@ public:
     void setEstado(const string& estado);
     void setCep(const string& cep);
     void setNumero(const string& numero);
-    void addVeiculo(Veiculos* veiculo);
-    //void removeVeiculo(const Veiculos& veiculo);
-    int getQuantosVeiculos();
-    vector<Veiculos*> getVeiculos();
-    
-    
+    void addVeiculo(const Veiculos& veiculo);
+
     int getId() const;
     string getNome() const;
     string getCpf() const;
