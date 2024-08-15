@@ -23,7 +23,8 @@ public:
         string descricao,
         string status,
         string cliente,
-        string veiculo
+        string veiculo,
+        string valorTotal
 
        
     );

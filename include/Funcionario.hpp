@@ -43,6 +43,7 @@ public:
     virtual vector<OrdemServico*> getOrdemServico();
     virtual void removeCliente(int id);
     virtual int getQuantosClientes() ;
+    virtual int getQuantasOrdens();
 
     void setLogin(string login);
     string getLogin();

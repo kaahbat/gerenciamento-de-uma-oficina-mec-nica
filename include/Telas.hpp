@@ -10,6 +10,7 @@ using namespace std;
 #include "../include/Mecanicos.hpp"
 #include "../include/Vendedores.hpp"
 #include "../include/SistemaLogin.hpp"
+#include "../include/OrdemServico.hpp"
 
 
 class Telas {

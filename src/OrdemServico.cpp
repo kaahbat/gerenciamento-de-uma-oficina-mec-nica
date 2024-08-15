@@ -1,7 +1,7 @@
 #include "OrdemServico.hpp"
 
 
-OrdemServico::OrdemServico(int id, string data, string descricao, string status, string cliente, string veiculo) 
+OrdemServico::OrdemServico(int id, string data, string descricao, string status, string cliente, string veiculo,string valorTotal) 
 {
     this->id = id;
     this->data = data;
@@ -9,7 +9,7 @@ OrdemServico::OrdemServico(int id, string data, string descricao, string status,
     this->status = status;
     this->cliente = cliente;
     this->veiculo = veiculo;
-
+    this->valorTotal= valorTotal;
 
 
 }

@@ -33,6 +33,7 @@ public:
     vector<Clientes*> getClientes();
     void addOrdemServico(OrdemServico* ordemServico);
     vector<OrdemServico*> getOrdemServico();
+    int getQuantasOrdens();
     void removeCliente(int id);
     int getQuantosClientes();
     

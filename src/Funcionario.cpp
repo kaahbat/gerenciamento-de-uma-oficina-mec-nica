@@ -28,6 +28,20 @@ void Funcionario::addOrdemServico(OrdemServico *ordemServico)
 {
 }
 
+vector<OrdemServico *> Funcionario::getOrdemServico()
+{
+}
+
+int Funcionario::getQuantosClientes()
+{
+    
+}
+
+int Funcionario::getQuantasOrdens()
+{
+
+}
+
 Funcionario::~Funcionario() {
     
 }

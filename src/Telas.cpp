@@ -191,15 +191,15 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
                         cin >> opcaoVeiculo;
                         if (opcaoVeiculo > 0 && opcaoVeiculo <= vendedor->getClientes()[opcaoCliente-1]->getQuantosVeiculos()) {
                             string descricao;
-                            cout << "Digite a descrição do serviço: ";
+                            cout << "Digite a descrição dos serviços: ";
                             cin.ignore();
                             getline(cin, descricao);
                             cout << "Digite a data do serviço: ";
                             string data;
                             cin >> data;
-                            string status = "Pendente";                            
-                            vendedor->addOrdemServico(new OrdemServico(vendedor->getOrdemServico().size()+1,data, descricao,status, vendedor->getClientes()[opcaoCliente-1], vendedor->getClientes()[opcaoCliente-1]->getVeiculos()[opcaoVeiculo-1]));
-
+                            string status = "Pendente";
+                         
+                            vendedor->addOrdemServico(new OrdemServico(vendedor->getQuantasOrdens()+1,data,descricao,status,vendedor->getClientes()[opcaoCliente-1]->getNome(),vendedor->getClientes()[opcaoCliente-1]->getVeiculos()[opcaoVeiculo-1]->getPlaca(),0));
                             cout << "Ordem de serviço gerada com sucesso!" << endl;
                         } else {
                             cout << "Opção inválida. Tente novamente." << endl;
@@ -211,6 +211,30 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
                 break;
             case 3:
                 // Visualizar ordens de serviço de orçamento pendentes de aprovação do cliente e marcar como aprovadas
+                {
+                    
+                    int opcaoOrdem;
+                    for (int i = 0; i < vendedor->getQuantasOrdens(); i++) {
+                        if (vendedor->getOrdensServico()[i]->getStatus() == "Pendente") {
+                            cout << "----- ORDEM DE SERVIÇO -----" << endl;
+                            cout << "Número: " << vendedor->getOrdensServico()[i]->getNumero() << endl;
+                            cout << "Data: " << vendedor->getOrdensServico()[i]->getData() << endl;
+                            cout << "Descrição: " << vendedor->getOrdensServico()[i]->getDescricao() << endl;
+                            cout << "Cliente: " << vendedor->getOrdensServico()[i]->getNomeCliente() << endl;
+                            cout << "Veículo: " << vendedor->getOrdensServico()[i]->getPlacaVeiculo() << endl;
+                            cout << "Valor: " << vendedor->getOrdensServico()[i]->getValor() << endl;
+                            cout << "Status: " << vendedor->getOrdensServico()[i]->getStatus() << endl;
+                            cout << "1. Marcar como aprovada" << endl;
+                            cout << "2. Voltar" << endl;
+                            cout << "Escolha uma opção: ";
+                            cin >> opcaoOrdem;
+                            if (opcaoOrdem == 1) {
+                                vendedor->getOrdensServico()[i]->setStatus("Aprovada");
+                                cout << "Ordem de serviço aprovada com sucesso!" << endl;
+                            }
+                        }
+                    }
+                }
                 break;
             case 4:
                 // Visualizar ordens de serviço executadas e realizar o fechamento

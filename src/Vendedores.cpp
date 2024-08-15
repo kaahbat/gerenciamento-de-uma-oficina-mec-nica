@@ -38,6 +38,11 @@ vector<OrdemServico *> Vendedores::getOrdemServico()
     return ordemServicos;
 }
 
+int Vendedores::getQuantasOrdens()
+{
+    return ordemServicos.size();
+}
+
 void Vendedores::removeCliente(int id)
 {
     for (auto it = clientes.begin(); it != clientes.end(); it++) {
