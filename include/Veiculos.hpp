@@ -15,7 +15,7 @@ private:
     string ano;
     int km;
     string combustivel;
-    string status;
+    
 
 public:
     Veiculos(
@@ -26,8 +26,8 @@ public:
         string cor,
         string ano,
         int km,
-        string combustivel,
-        string status
+        string combustivel
+        
     );
     ~Veiculos();
     void setId(int id);

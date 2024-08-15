@@ -30,7 +30,10 @@ vector<OrdemServico> Vendedores::getOrdemServico()
     return vector<OrdemServico>();
 }
 
-
+int Vendedores::getQuantosClientes()
+{
+    return clientes.size();
+}
 
 void Vendedores::removeCliente(int id)
 {

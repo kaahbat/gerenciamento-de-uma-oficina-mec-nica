@@ -98,7 +98,102 @@ void Telas::menuMecanicos()
 
 void Telas::menuVendedores(SistemaLogin* sistema, Vendedores* vendedor)
 {
-    printf("vendedor\n");
+    int opcao;
+    do{
+        cout << "----- MENU VENDEDOR -----" << endl;
+        cout << "1. Cadastrar cliente e veículo" << endl;
+        cout << "2. Gerar ordem de serviço" << endl;
+        cout << "3. Visualizar ordens de serviço de orçamento pendentes de aprovação do cliente e marcar como aprovadas" << endl;
+        cout << "4. Visualizar ordens de serviço executadas e realizar o fechamento" << endl;
+        cout << "Escolha uma opção: ";
+        cin >> opcao;
+
+        switch (opcao) {
+            case 1:
+
+                {
+                    string nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero;
+                    string marca, modelo, ano, placa, cor, combustivel;
+                    int km;
+                    cout << "--- CADASTRO DE CLIENTE ---" << endl;
+                    cout << "Digite o nome do cliente: ";
+                    cin >> nome;
+                    cout << "Digite o CPF do cliente: ";
+                    cin >> cpf;
+                    cout << "Digite o telefone do cliente: ";
+                    cin >> telefone;
+                    cout << "Digite o email do cliente: ";
+                    cin >> email;
+                    cout << "Digite a rua do cliente: ";
+                    cin >> rua;
+                    cout << "Digite o bairro do cliente: ";
+                    cin >> bairro;
+                    cout << "Digite a cidade do cliente: ";
+                    cin >> cidade;
+                    cout << "Digite o estado do cliente: ";
+                    cin >> estado;
+                    cout << "Digite o CEP do cliente: ";
+                    cin >> cep;
+                    cout << "Digite o numero do cliente: ";
+                    cin >> numero;
+                    Clientes cliente (vendedor->getQuantosClientes()+1, nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero);
+                    vendedor->addCliente(cliente);
+                    cout << "Cliente cadastrado com sucesso!" << endl;
+                    int opcaoVeiculo;
+                    do {
+                        cout << "--- CADASTRO DE VEÍCULO ---" << endl;
+                        cout << "Digite a marca do veículo: ";
+                        cin >> marca;
+                        cout << "Digite o modelo do veículo: ";
+                        cin >> modelo;
+                        cout << "Digite o ano do veículo: ";
+                        cin >> ano;
+                        cout << "Digite a placa do veículo: ";
+                        cin >> placa;
+                        cout << "Digite a cor do veículo: ";
+                        cin >> cor;
+                        cout << "Digite o combustível do veículo: ";
+                        cin >> combustivel;
+                        cout << "Digite a quilometragem do veículo: ";
+                        cin >> km;
+                        Veiculos veiculo (vendedor->getQuantosClientes()+1, placa, marca, modelo, cor, ano, km, combustivel);
+                        cliente.addVeiculo(veiculo);
+                        cout << "Veículo cadastrado com sucesso!" << endl;
+                        cout << "Deseja cadastrar outro veículo?" << endl;
+                        cout << "1. Sim" << endl;
+                        cout << "0. Não" << endl;
+                        cout << "Escolha uma opção: ";
+                        cin >> opcaoVeiculo;
+                
+                    }while(opcaoVeiculo!=0);
+                
+                
+                }
+                break;
+            case 2:
+                {
+                    int opcaoCliente;
+                    for (int i = 0; i < vendedor->getQuantosClientes(); i++) {
+                        cout << i+1 << ". " << vendedor->getClientes()[i].getNome() << endl;
+                    }
+                    cout << "Escolha um cliente para gerar a ordem de serviço: ";
+                    cin >> opcaoCliente;
+                    
+                    string descricao, data, hora;
+                }
+                break;
+            case 3:
+                // Implement the code for viewing and approving pending service orders
+                break;
+            case 4:
+                // Implement the code for viewing and closing completed service orders
+                break;
+            default:
+                cout << "Opção inválida. Tente novamente." << endl;
+                break;
+        }
+    } while (opcao != 0);
+    
 }
 
 void Telas::menuAdmin(SistemaLogin* sistema)

@@ -1,7 +1,7 @@
 #include "Veiculos.hpp"
 
 
-Veiculos::Veiculos(int id, string placa, string marca, string modelo, string cor, string ano, int km, string combustivel, string status)
+Veiculos::Veiculos(int id, string placa, string marca, string modelo, string cor, string ano, int km, string combustivel)
 {   
     this->id = id;
     this->placa = placa;
@@ -11,7 +11,6 @@ Veiculos::Veiculos(int id, string placa, string marca, string modelo, string cor
     this->ano = ano;
     this->km = km;
     this->combustivel = combustivel;
-    this->status = status;
 }
 
 Veiculos::~Veiculos() {
@@ -58,10 +57,7 @@ void Veiculos::setCombustivel(string combustivel)
     this->combustivel = combustivel;
 }
 
-void Veiculos::setStatus(string status)
-{
-    this->status = status;
-}
+
 
 int Veiculos::getId()
 {
@@ -103,10 +99,7 @@ string Veiculos::getCombustivel()
     return combustivel;
 }
 
-string Veiculos::getStatus()
-{
-    return status;
-}
+
 
 void Veiculos::print()
 {   
@@ -118,5 +111,4 @@ void Veiculos::print()
     cout << "Ano: " << ano << endl;
     cout << "Km: " << km << endl;
     cout << "Combustivel: " << combustivel << endl;
-    cout << "Status: " << status << endl;
 }

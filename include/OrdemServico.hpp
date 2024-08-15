@@ -1,10 +1,11 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "mecanicos.hpp"
-#include "produtos.hpp"
-#include "clientes.hpp"
-#include "servicos.hpp"
+#include "../include/Servicos.hpp"
+
+#include <vector>
+using namespace std;
+
 
 class OrdemServico {
     private:

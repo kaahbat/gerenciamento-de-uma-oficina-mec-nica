@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "Clientes.hpp"
-#include "OrdemServico.hpp"
+#include "../include/Clientes.hpp"
+#include "../include/OrdemServico.hpp"
+
 
 using namespace std;
 
@@ -13,6 +14,7 @@ protected:
     string senha;
     vector<Clientes> clientes;
     vector<OrdemServico> servicos;   
+    
 private:
     int id;
     string nome;

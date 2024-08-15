@@ -29,8 +29,10 @@ public:
     void addOrdemServico(const OrdemServico& ordemServico);
     vector<Clientes> getClientes();
     vector<OrdemServico> getOrdemServico();
+    int getQuantosClientes();
     void removeCliente(int id);
     void removeOrdemServico(int id);
+
     
 
 
