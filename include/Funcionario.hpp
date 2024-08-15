@@ -41,7 +41,7 @@ public:
     
     virtual void addOrdemServico(OrdemServico* ordemServico) ;
     virtual vector<OrdemServico*> getOrdemServico();
-    virtual void removeCliente(int id);
+    
     virtual int getQuantosClientes() ;
     virtual int getQuantasOrdens();
 

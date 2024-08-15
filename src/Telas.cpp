@@ -112,7 +112,7 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
 
         switch (opcao) {
             case 1:
-                {
+                {/*
                     // Cadastrar cliente e veículo
                     string nome, cpf, telefone, email,rua,bairro,cidade,estado,cep,numero;
                     string marca, modelo, ano, placa, cor, combustivel, status;
@@ -169,12 +169,12 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
                         cout << "Escolha uma opção: ";
                         cin >> opcaoV;
                     } while (opcaoV==1);
-                    
+                  */  
                 }
                 break;
             case 2:
                 // Gerar ordem de serviço
-                {
+                {/*
                     int opcaoCliente;
                     for (int i = 0; i < vendedor->getQuantosClientes(); i++) {
                         cout << i+1 << ". " << vendedor->getClientes()[i]->getNome() << endl;
@@ -206,13 +206,13 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
                         }
                     } else {
                         cout << "Opção inválida. Tente novamente." << endl;
-                    }
+                    }*/
                 }
                 break;
             case 3:
                 // Visualizar ordens de serviço de orçamento pendentes de aprovação do cliente e marcar como aprovadas
                 {
-                    
+                   /*
                     int opcaoOrdem;
                     for (int i = 0; i < vendedor->getQuantasOrdens(); i++) {
                         if (vendedor->getOrdensServico()[i]->getStatus() == "Pendente") {
@@ -233,7 +233,7 @@ void Telas::menuVendedores(SistemaLogin* sistema, Funcionario* vendedor)
                                 cout << "Ordem de serviço aprovada com sucesso!" << endl;
                             }
                         }
-                    }
+                    }*/ 
                 }
                 break;
             case 4:
