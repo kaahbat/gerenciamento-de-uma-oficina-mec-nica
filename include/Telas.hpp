@@ -11,12 +11,12 @@
 using namespace std;
 
 //Inclui os headers dos outros componentes do sistema
-#include "../include/Funcionario.hpp"
-#include "../include/Admin.hpp"
-#include "../include/Mecanicos.hpp"
-#include "../include/Vendedores.hpp"
-#include "../include/SistemaLogin.hpp"
-#include "../include/OrdemServico.hpp"
+#include "Funcionario.hpp"
+#include "Admin.hpp"
+#include "Mecanicos.hpp"
+#include "Vendedores.hpp"
+#include "SistemaLogin.hpp"
+#include "OrdemServico.hpp"
 
 //Declaração da classe Telas, responsável pela interface do usuário
 class Telas {
