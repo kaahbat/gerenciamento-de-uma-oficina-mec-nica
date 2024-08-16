@@ -1,46 +1,35 @@
 #include "SistemaLogin.hpp"
 
+//Construtor padrão, inicializa a lista de usuários
 SistemaLogin::SistemaLogin() {
-
 }
 
-void SistemaLogin::addUsuario(Funcionario *usuario)
-{
+//Adiciona um novo usuário ao sistema
+void SistemaLogin::addUsuario(Funcionario* usuario) {
     usuarios.push_back(usuario);
 }
 
-Funcionario *SistemaLogin::autenticar(string& login, string& senha) const 
-{
+//Tenta autenticar um usuário com base no login e senha fornecidos
+Funcionario* SistemaLogin::autenticar(string& login, string& senha) const {
     for (const auto& u : usuarios) {
         if (u->autenticar(login, senha)) {
             return u;
         }
     }
-    return nullptr;
-}
-/*
-Funcionario *SistemaLogin::getUsuario(int id) const
-{
-    for (const auto& u : usuarios) {
-        if (u->getId() == id) {
-            return u;
-        }
-    }
-    return nullptr;
-}*/
-
-SistemaLogin::~SistemaLogin() {
-    
+    return nullptr; //Retorna nullptr se a autenticação falhar
 }
 
-vector<Funcionario *> SistemaLogin::getUsuarios() const
-{
+//Destrutor
+SistemaLogin::~SistemaLogin() {}
+
+//Retorna a lista completa de usuários no sistema
+vector<Funcionario*> SistemaLogin::getUsuarios() const {
     return usuarios;
 }
 
-vector<Funcionario *> SistemaLogin::getMecanicos() const
-{
-    vector<Funcionario *> mecanicos;
+//Retorna uma lista com todos os usuários do tipo "Mecanico"
+vector<Funcionario*> SistemaLogin::getMecanicos() const {
+    vector<Funcionario*> mecanicos;
     for (const auto& u : usuarios) {
         if (u->getTipo() == "Mecanico") {
             mecanicos.push_back(u);
@@ -49,9 +38,9 @@ vector<Funcionario *> SistemaLogin::getMecanicos() const
     return mecanicos;
 }
 
-vector<Funcionario *> SistemaLogin::getVendedores() const
-{
-    vector<Funcionario *> vendedores;
+//Retorna uma lista com todos os usuários do tipo "Vendedor"
+vector<Funcionario*> SistemaLogin::getVendedores() const {
+    vector<Funcionario*> vendedores;
     for (const auto& u : usuarios) {
         if (u->getTipo() == "Vendedor") {
             vendedores.push_back(u);
@@ -60,26 +49,17 @@ vector<Funcionario *> SistemaLogin::getVendedores() const
     return vendedores;
 }
 
-
-
-/// tirar essa funçao
-void SistemaLogin::setUsuario(int id, Funcionario *usuarioEditado)
-{
-    for(auto& usuario : usuarios) {
-        if(usuario->getId() == id) {
-            printf("Usuario encontrado\n");
-            printf("Usuario editado: %s\n", usuarioEditado->getNome().c_str());
-            printf("Usuario original: %s\n", usuario->getNome().c_str());
-            printf("Usuario original: %s\n", usuario->getTipo().c_str());
-            printf("Usuario editado: %s\n", usuarioEditado->getTipo().c_str());
+//Atualiza as informações de um usuário com base no ID fornecido
+void SistemaLogin::setUsuario(int id, Funcionario* usuarioEditado) {
+    for (auto& usuario : usuarios) {
+        if (usuario->getId() == id) {
             usuario = usuarioEditado;
         }
     }
 }
 
-
-int SistemaLogin::getQuantosVendedores()
-{
+//Retorna o número de usuários do tipo "Vendedor" no sistema
+int SistemaLogin::getQuantosVendedores() {
     int cont = 0;
     for (const auto& u : usuarios) {
         if (u->getTipo() == "Vendedor") {
@@ -89,8 +69,8 @@ int SistemaLogin::getQuantosVendedores()
     return cont;
 }
 
-int SistemaLogin::getQuantosMecanicos()
-{
+//Retorna o número de usuários do tipo "Mecanico" no sistema
+int SistemaLogin::getQuantosMecanicos() {
     int cont = 0;
     for (const auto& u : usuarios) {
         if (u->getTipo() == "Mecanico") {
@@ -100,15 +80,13 @@ int SistemaLogin::getQuantosMecanicos()
     return cont;
 }
 
-int SistemaLogin::getQuantosUsuarios()
-{
-    
-
+//Retorna o número total de usuários no sistema
+int SistemaLogin::getQuantosUsuarios() {
     return usuarios.size();
 }
 
-void SistemaLogin::removeUsuario(int id)
-{
+//Remove um usuário do sistema com base no ID fornecido
+void SistemaLogin::removeUsuario(int id) {
     for (auto it = usuarios.begin(); it != usuarios.end(); it++) {
         if ((*it)->getId() == id) {
             usuarios.erase(it);

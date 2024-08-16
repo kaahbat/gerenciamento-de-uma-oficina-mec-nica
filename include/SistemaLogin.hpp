@@ -1,26 +1,47 @@
 #pragma once
 #include <vector>
 #include "Funcionario.hpp"
+
 class SistemaLogin {
 private:
-    vector<Funcionario*> usuarios;
-    vector<Clientes*> clientes;
-    vector<OrdemServico*> servicos;   
-    
+    vector<Funcionario*> usuarios;  //Lista de usuários (mecânicos, vendedores, etc.)
+    vector<Clientes*> clientes;     //Lista de clientes (não implementada totalmente aqui)
+    vector<OrdemServico*> servicos; //Lista de ordens de serviço (não implementada totalmente aqui)
+   
 public:
+    //Construtor default
     SistemaLogin();
-    void addUsuario(Funcionario* usuario);
-    Funcionario* autenticar(string& login, string& senha) const;
-    //Funcionario* getUsuario(int id) const;
-    vector<Funcionario*> getUsuarios() const;
-    vector<Funcionario*> getMecanicos() const;
-    vector<Funcionario*> getVendedores() const;
-    void setUsuario(int id, Funcionario* usuarioEditado);
-    int getQuantosVendedores();
-    int getQuantosMecanicos();
-    int getQuantosUsuarios();
-    void removeUsuario(int id);
-    ~SistemaLogin();
     
+    //Destrutor
+    ~SistemaLogin();
 
+    //Adiciona um novo usuário ao sistema
+    void addUsuario(Funcionario* usuario);
+
+    //Autentica um usuário pelo login e senha, retornando o ponteiro para o usuário se autenticado
+    Funcionario* autenticar(string& login, string& senha) const;
+
+    //Retorna a lista completa de usuários
+    vector<Funcionario*> getUsuarios() const;
+
+    //Retorna a lista de mecânicos
+    vector<Funcionario*> getMecanicos() const;
+
+    //Retorna a lista de vendedores
+    vector<Funcionario*> getVendedores() const;
+
+    //Atualiza um usuário específico pelo id
+    void setUsuario(int id, Funcionario* usuarioEditado);
+
+    //Retorna o número de vendedores cadastrados
+    int getQuantosVendedores();
+
+    //Retorna o número de mecânicos cadastrados
+    int getQuantosMecanicos();
+
+    //Retorna o número total de usuários cadastrados
+    int getQuantosUsuarios();
+
+    //Remove um usuário do sistema pelo id
+    void removeUsuario(int id);
 };

@@ -1,25 +1,23 @@
 #include "Mecanicos.hpp"
 
+//Construtor que inicializa os atributos do mecânico utilizando o construtor da classe base Funcionario
+Mecanicos::Mecanicos(const string& login, const string& senha, int id, string nome, string cpf, string telefone, string email) 
+    : Funcionario(login, senha, id, nome, cpf, telefone, email) {}
 
-Mecanicos::Mecanicos(const string& login,const string& senha, int id, string nome, string cpf, string telefone, string email) : Funcionario(login,senha,id, nome, cpf, telefone, email)
-{
+//Método que retorna o tipo de funcionário como "Mecanico"
+string Mecanicos::getTipo() const {
+    return "Mecanico";
 }
 
-string Mecanicos::getTipo() const
-{
-     return "Mecanico";
+//Método que retorna o vetor de Ordens de Serviço associadas ao mecânico
+vector<OrdemServico*> Mecanicos::getOrdemServico() {
+    return servicos;
 }
 
-vector<OrdemServico *> Mecanicos::getOrdemServico()
-{
-     return servicos;
-}
-
-int Mecanicos::getQuantosOrdemServico()
-{
+//Método que retorna o número de Ordens de Serviço associadas ao mecânico
+int Mecanicos::getQuantosOrdemServico() {
     return servicos.size();
 }
 
-Mecanicos::~Mecanicos()
-{
-}
+//Destrutor da classe Mecanicos, atualmente não realiza nenhuma operação específica
+Mecanicos::~Mecanicos() {}

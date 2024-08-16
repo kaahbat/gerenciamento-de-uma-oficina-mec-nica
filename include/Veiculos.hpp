@@ -4,9 +4,10 @@
 
 using namespace std;
 
-class Veiculos  {
+class Veiculos {
 
 private:
+    // Atributos privados do veículo
     int id;
     string placa;
     string marca;
@@ -15,9 +16,9 @@ private:
     string ano;
     int km;
     string combustivel;
-    
 
 public:
+    // Construtor da classe Veiculos
     Veiculos(
         int id,
         string placa,
@@ -27,9 +28,12 @@ public:
         string ano,
         int km,
         string combustivel
-        
     );
+
+    // Destrutor da classe Veiculos
     ~Veiculos();
+
+    // Métodos setters para alterar os atributos do veículo
     void setId(int id);
     void setPlaca(string placa);
     void setMarca(string marca);
@@ -38,7 +42,8 @@ public:
     void setAno(string ano);
     void setKm(int km);
     void setCombustivel(string combustivel);
-    void setStatus(string status);
+
+    // Métodos getters para acessar os atributos do veículo
     int getId();
     string getPlaca();
     string getMarca();
@@ -47,7 +52,7 @@ public:
     string getAno();
     int getKm();
     string getCombustivel();
-    string getStatus();
-    void print();
 
+    // Método para imprimir as informações do veículo
+    void print();
 };

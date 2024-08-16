@@ -1,46 +1,50 @@
 #include "Telas.hpp"
 
-Telas::Telas()
-{
+Telas::Telas() {
+    //Construtor padrão da classe Telas, sem lógica adicional
 }
 
-Telas::~Telas()
-{
+Telas::~Telas() {
+    //Destrutor da classe Telas, sem lógica adicional
 }
 
-void Telas::menuPrincipal()
-{
-
+//Função que exibe o menu principal do sistema
+void Telas::menuPrincipal() {
+    //Adiciona usuários ao sistema na inicialização do menu principal
     sistema->addUsuario(new Admin("admin", "admin", 1, "lucas", "11111111111", "31999999999", "admin@1"));
     sistema->addUsuario(new Mecanicos("mecanico1", "mecanico1", 2, "carlos", "22222222222", "31999999998", "mecanico@1"));
     sistema->addUsuario(new Mecanicos("mecanico2", "mecanico2", 3, "carlos", "22222222222", "31999999998", "mecanico@1"));
     sistema->addUsuario(new Vendedores("vendedor", "vendedor", 4, "joao", "33333333333", "31999999997", "vendedor@1"));
     sistema->addUsuario(new Vendedores("vendedor2", "vendedor2", 5, "joao", "33333333333", "31999999997", "vendedor@1"));
     sistema->addUsuario(new Vendedores("vendedor3", "vendedor3", 6, "joao", "33333333333", "31999999997", "vendedor@1"));
+
     int opcao;
-    do
-    {
+    do {
+        //Exibe o menu principal para o usuário
         cout << "----- MENU PRINCIPAL -----" << endl;
         cout << "1. Login" << endl;
         cout << "2. Sair do sistema" << endl;
         cout << "Escolha uma opção: ";
         cin >> opcao;
 
-        switch (opcao)
-        {
+        switch (opcao) {
         case 1:
+            //Chama o método de login
             menuLogin();
             break;
         case 2:
+            //Sai do sistema
             cout << "Saindo do sistema..." << endl;
             break;
         default:
+            //Exibe uma mensagem de erro se a opção for inválida
             cout << "Opção inválida. Tente novamente." << endl;
             break;
         }
-    } while (opcao != 2);
+    } while (opcao != 2); //Continua exibindo o menu até que o usuário escolha sair
 }
 
+//Função que exibe a tela de login
 void Telas::menuLogin()
 {
     string login, senha;
@@ -83,26 +87,30 @@ void Telas::menuLogin()
         cout << "Usuário ou senha incorretos." << endl;
     }
 }
-string Telas::lerString()
-{
+
+//Função que lê uma string do usuário de forma segura
+string Telas::lerString(){
     string str;
+    // Ignora o buffer de entrada anterior para evitar problemas de leitura com getline
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    // Lê a linha completa de entrada do usuário e armazena na string 'str'
     getline(cin, str);
+    
+    // Retorna a string lida
     return str;
 }
 
-void Telas::menuMecanicos(Mecanicos *mecanico)
-{
+//Função que exibe o menu específico para mecânicos
+void Telas::menuMecanicos(Mecanicos *mecanico){
     int opcao;
-    do
-    {
+    do{
         cout << "----- MENU MECÂNICO -----" << endl;
         cout << "1. Visualizar ordens de serviço abertas." << endl;
         cout << "2. Cadastrar serviços executados e peças utilizadas." << endl;
         cout << "Escolha uma opção: ";
         cin >> opcao;
-        switch (opcao)
-        {
+        switch (opcao){
         case 1:
         {
             cout << "--- ORDENS DE SERVIÇO ABERTAS ---" << endl;
@@ -162,11 +170,11 @@ void Telas::menuMecanicos(Mecanicos *mecanico)
     } while (opcao != 0);
 }
 
-void Telas::menuVendedores(Vendedores *vendedor)
-{
+//Função que exibe o menu específico para vendedores
+void Telas::menuVendedores(Vendedores *vendedor) {
     int opcao;
-    do
-    {
+    do {
+        // Exibe o menu específico para vendedores
         cout << "----- MENU VENDEDOR -----" << endl;
         cout << "1. Cadastrar cliente e veículo" << endl;
         cout << "2. Gerar ordem de serviço" << endl;
@@ -175,11 +183,9 @@ void Telas::menuVendedores(Vendedores *vendedor)
         cout << "Escolha uma opção: ";
         cin >> opcao;
 
-        switch (opcao)
-        {
-        case 1:
-
-        {
+        switch (opcao) {
+        case 1: {
+            // Cadastro de cliente e veículo
             string nome, cpf, telefone, email, rua, bairro, cidade, estado, cep, numero;
             string marca, modelo, ano, placa, cor, combustivel;
             int km;
@@ -202,14 +208,17 @@ void Telas::menuVendedores(Vendedores *vendedor)
             cin >> estado;
             cout << "Digite o CEP do cliente: ";
             cin >> cep;
-            cout << "Digite o numero do cliente: ";
+            cout << "Digite o número do cliente: ";
             cin >> numero;
+
+            // Criação do objeto Cliente e adição à lista de clientes do vendedor
             Clientes *cliente = new Clientes(vendedor->getQuantosClientes() + 1, nome, cpf, telefone, email, rua, bairro, cidade, estado, cep, numero);
             vendedor->addCliente(cliente);
             cout << "Cliente cadastrado com sucesso!" << endl;
+
             int opcaoVeiculo;
-            do
-            {
+            do {
+                // Cadastro de veículo
                 cout << "--- CADASTRO DE VEÍCULO ---" << endl;
                 cout << "Digite a marca do veículo: ";
                 cin >> marca;
@@ -225,9 +234,12 @@ void Telas::menuVendedores(Vendedores *vendedor)
                 cin >> combustivel;
                 cout << "Digite a quilometragem do veículo: ";
                 cin >> km;
+
+                // Criação do objeto Veículo e adição à lista de veículos do cliente
                 Veiculos *veiculo = new Veiculos(vendedor->getQuantosClientes() + 1, placa, marca, modelo, cor, ano, km, combustivel);
                 cliente->addVeiculo(veiculo);
                 cout << "Veículo cadastrado com sucesso!" << endl;
+
                 cout << "Deseja cadastrar outro veículo?" << endl;
                 cout << "1. Sim" << endl;
                 cout << "0. Não" << endl;
@@ -237,60 +249,57 @@ void Telas::menuVendedores(Vendedores *vendedor)
             } while (opcaoVeiculo != 0);
         }
         break;
-        case 2:
-        {
+
+        case 2: {
+            // Geração de ordem de serviço
             int opcaoCliente;
-            for (int i = 0; i < vendedor->getQuantosClientes(); i++)
-            {
+            for (int i = 0; i < vendedor->getQuantosClientes(); i++) {
+                // Exibe a lista de clientes para seleção
                 cout << i + 1 << ". " << vendedor->getClientes()[i]->getNome() << endl;
             }
             cout << "Escolha um cliente para gerar a ordem de serviço: ";
             cin >> opcaoCliente;
-            if (opcaoCliente > 0 && opcaoCliente <= vendedor->getQuantosClientes())
-            {
+
+            if (opcaoCliente > 0 && opcaoCliente <= vendedor->getQuantosClientes()) {
                 int opcaoVeiculo;
-                for (int i = 0; i < vendedor->getClientes()[opcaoCliente - 1]->getQuantosVeiculos(); i++)
-                {
+                for (int i = 0; i < vendedor->getClientes()[opcaoCliente - 1]->getQuantosVeiculos(); i++) {
+                    // Exibe a lista de veículos do cliente selecionado
                     cout << i + 1 << ". " << vendedor->getClientes()[opcaoCliente - 1]->getVeiculos()[i]->getPlaca() << endl;
                 }
                 cout << "Escolha um veículo para gerar a ordem de serviço: ";
                 cin >> opcaoVeiculo;
-                if (opcaoVeiculo > 0 && opcaoVeiculo <= vendedor->getClientes()[opcaoCliente - 1]->getQuantosVeiculos())
-                {
+
+                if (opcaoVeiculo > 0 && opcaoVeiculo <= vendedor->getClientes()[opcaoCliente - 1]->getQuantosVeiculos()) {
                     string data, descricao, status, valor, veiculo, cliente;
                     cout << "Digite a data da ordem de serviço: ";
                     cin >> data;
                     cout << "Digite a descrição da ordem de serviço: ";
-                    descricao = lerString();
+                    descricao = lerString();  // Assumindo que lerString() é uma função para ler uma string completa
                     status = "Pendente";
                     cout << "Digite o valor da ordem de serviço: ";
                     cin >> valor;
+
+                    // Criação do objeto OrdemServico e adição à lista de ordens do vendedor
                     veiculo = vendedor->getClientes()[opcaoCliente - 1]->getVeiculos()[opcaoVeiculo - 1]->getPlaca();
                     cliente = vendedor->getClientes()[opcaoCliente - 1]->getNome();
                     OrdemServico *ordem = new OrdemServico(vendedor->getQuantosOrdemServico() + 1, data, descricao, status, valor, veiculo, cliente);
                     vendedor->addOrdemServico(ordem);
                     cout << "Ordem de serviço gerada com sucesso!" << endl;
-                }
-                else
-                {
+                } else {
                     cout << "Opção inválida. Tente novamente." << endl;
                 }
-            }
-            else
-            {
+            } else {
                 cout << "Opção inválida. Tente novamente." << endl;
             }
-
-            string data, descricao, status, valor, veiculo, cliente;
         }
         break;
-        case 3:
-        {
+
+        case 3: {
+            // Visualização e aprovação de ordens de serviço pendentes
             cout << "--- ORDENS DE SERVIÇO PENDENTES DE APROVAÇÃO ---" << endl;
-            for (int i = 0; i < vendedor->getQuantosOrdemServico(); i++)
-            {
-                if (vendedor->getOrdemServico()[i]->getStatus() == "Pendente")
-                {
+            for (int i = 0; i < vendedor->getQuantosOrdemServico(); i++) {
+                if (vendedor->getOrdemServico()[i]->getStatus() == "Pendente") {
+                    // Exibe detalhes das ordens de serviço pendentes
                     cout << "Ordem de Serviço " << vendedor->getOrdemServico()[i]->getId() << endl;
                     cout << "Data: " << vendedor->getOrdemServico()[i]->getData() << endl;
                     cout << "Descrição: " << vendedor->getOrdemServico()[i]->getDescricao() << endl;
@@ -303,25 +312,23 @@ void Telas::menuVendedores(Vendedores *vendedor)
             int opcaoAprovacao;
             cout << "Escolha uma opção: ";
             cin >> opcaoAprovacao;
-            if (opcaoAprovacao > 0 && opcaoAprovacao <= vendedor->getQuantosOrdemServico())
-            {
+
+            if (opcaoAprovacao > 0 && opcaoAprovacao <= vendedor->getQuantosOrdemServico()) {
+                // Aprovação da ordem de serviço selecionada
                 vendedor->getOrdemServico()[opcaoAprovacao - 1]->setStatus("Aprovada");
-                cout<< vendedor->getOrdemServico()[opcaoAprovacao - 1]->getStatus() <<endl;
                 cout << "Ordem de serviço aprovada com sucesso!" << endl;
-            }
-            else
-            {
+            } else {
                 cout << "Opção inválida. Tente novamente." << endl;
             }
         }
         break;
-        case 4:
-        {
+
+        case 4: {
+            // Visualização e fechamento de ordens de serviço executadas
             cout << "--- ORDENS DE SERVIÇO EXECUTADAS ---" << endl;
-            for (int i = 0; i < vendedor->getQuantosOrdemServico(); i++)
-            {
-                if (vendedor->getOrdemServico()[i]->getStatus() == "Executada")
-                {
+            for (int i = 0; i < vendedor->getQuantosOrdemServico(); i++) {
+                if (vendedor->getOrdemServico()[i]->getStatus() == "Executada") {
+                    // Exibe detalhes das ordens de serviço executadas
                     cout << "Ordem de Serviço " << vendedor->getOrdemServico()[i]->getId() << endl;
                     cout << "Data: " << vendedor->getOrdemServico()[i]->getData() << endl;
                     cout << "Descrição: " << vendedor->getOrdemServico()[i]->getDescricao() << endl;
@@ -334,24 +341,26 @@ void Telas::menuVendedores(Vendedores *vendedor)
             int opcaoFechamento;
             cout << "Escolha uma opção: ";
             cin >> opcaoFechamento;
-            if (opcaoFechamento > 0 && opcaoFechamento <= vendedor->getQuantosOrdemServico())
-            {
+
+            if (opcaoFechamento > 0 && opcaoFechamento <= vendedor->getQuantosOrdemServico()) {
+                // Fechamento da ordem de serviço selecionada
                 vendedor->getOrdemServico()[opcaoFechamento - 1]->setStatus("Fechada");
                 cout << "Ordem de serviço fechada com sucesso!" << endl;
-            }
-            else
-            {
+            } else {
                 cout << "Opção inválida. Tente novamente." << endl;
             }
         }
         break;
+
         default:
+            // Mensagem para opção inválida
             cout << "Opção inválida. Tente novamente." << endl;
             break;
         }
-    } while (opcao != 0);
+    } while (opcao != 0); // Repete o menu até o usuário escolher sair
 }
 
+//Função que exibe o menu específico para administradores
 void Telas::menuAdmin(SistemaLogin *sistema)
 {
     int opcaoEditarVouF;
@@ -532,7 +541,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
 
             break;
         case 3:
-            // string loginV, senhaV, nomeV, cpfV, telefoneV, emailV;
+            //string loginV, senhaV, nomeV, cpfV, telefoneV, emailV;
             cout << "Digite o nome do vendedor: ";
             cin >> nomeV;
             cout << "Digite o CPF do vendedor: ";
@@ -549,7 +558,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
             cout << "Vendedor adicionado com sucesso!" << endl;
             break;
         case 4:
-            // string loginM, senhaM, nomeM, cpfM, telefoneM, emailM;
+            //string loginM, senhaM, nomeM, cpfM, telefoneM, emailM;
             cout << "Digite o nome do mecânico: ";
             cin >> nomeM;
             cout << "Digite o CPF do mecânico: ";

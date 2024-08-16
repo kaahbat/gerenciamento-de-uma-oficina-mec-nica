@@ -1,16 +1,20 @@
 #include "Admin.hpp"
 
-Admin::Admin(const string& login,const string& senha ,int id, string nome, string cpf, string telefone, string email): Funcionario(login,senha,id, nome, cpf, telefone, email){
+//Construtor que utiliza o construtor da classe base Funcionario para inicializar os atributos
+Admin::Admin(const string& login,const string& senha ,int id, string nome, string cpf, string telefone, string email)
+    : Funcionario(login, senha, id, nome, cpf, telefone, email) {
 }
 
-Admin::~Admin()
-{
+//Destrutor da classe Admin, aqui ele é implementado mas não realiza nenhuma operação específica
+Admin::~Admin() {
 }
 
+//Método que retorna a string "Admin", identificando o tipo do funcionário
 string Admin::getTipo() const {
     return "Admin";
 }
 
+//Implementação do método que simula a ação de gerenciar o sistema, exibindo uma mensagem
 void Admin::gerenciarSistema() const {
     std::cout << "Admin gerenciando o sistema." << std::endl;
 }

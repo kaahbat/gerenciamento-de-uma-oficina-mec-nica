@@ -1,6 +1,6 @@
 #include "Clientes.hpp"
 
-
+//Construtor que inicializa os atributos do cliente
 Clientes::Clientes(int id, const string & nome, const string & cpf, const string & telefone, const string & email, const string & rua, const string & bairro, const string & cidade, const string & estado, const string & cep, const string & numero)
 {
     this->id = id;
@@ -16,11 +16,11 @@ Clientes::Clientes(int id, const string & nome, const string & cpf, const string
     this->numero = numero;
 }
 
+//Destrutor da classe Clientes, não realiza nenhuma operação específica
 Clientes::~Clientes() {
-
 }
 
-// Setters
+//Implementação dos setters
 void Clientes::setId(int id) {
     this->id = id;
 }
@@ -65,12 +65,12 @@ void Clientes::setNumero(const string& numero) {
     this->numero = numero;
 }
 
-void Clientes::addVeiculo(Veiculos *veiculo)
-{
+//Adiciona um veículo ao vetor de veículos do cliente
+void Clientes::addVeiculo(Veiculos *veiculo) {
     veiculos.push_back(veiculo);
 }
 
-// Getters
+//Implementação dos getters
 int Clientes::getId() const {
     return id;
 }
@@ -115,18 +115,17 @@ string Clientes::getNumero() const {
     return numero;
 }
 
-vector<Veiculos *> Clientes::getVeiculos() const
-{
+//Retorna o vetor de veículos associados ao cliente
+vector<Veiculos *> Clientes::getVeiculos() const {
     return veiculos;
 }
 
-int Clientes::getQuantosVeiculos()
-{
+//Retorna a quantidade de veículos que o cliente possui
+int Clientes::getQuantosVeiculos() {
     return veiculos.size();
 }
 
-
-
+//Imprime os dados do cliente no console
 void Clientes::print() {
     cout << " Cliente: " << id << endl;
     cout << "Nome: " << nome << endl;

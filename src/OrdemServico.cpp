@@ -1,8 +1,7 @@
 #include "OrdemServico.hpp"
 
-
-OrdemServico::OrdemServico(int id, string data, string descricao, string status, string valor, string veiculo, string cliente)
-{
+//Construtor que inicializa os atributos da ordem de serviço
+OrdemServico::OrdemServico(int id, string data, string descricao, string status, string valor, string veiculo, string cliente) {
     this->id = id;
     this->data = data;
     this->descricao = descricao;
@@ -12,87 +11,73 @@ OrdemServico::OrdemServico(int id, string data, string descricao, string status,
     this->cliente = cliente;
 }
 
+//Destrutor da classe OrdemServico, atualmente não realiza nenhuma operação específica
+OrdemServico::~OrdemServico() {}
 
-OrdemServico::~OrdemServico()
-{
-}
-
-int OrdemServico::getId()
-{
+//Implementação dos getters
+int OrdemServico::getId() {
     return this->id;
 }
 
-string OrdemServico::getData()
-{
+string OrdemServico::getData() {
     return this->data;
 }
 
-string OrdemServico::getDescricao()
-{
+string OrdemServico::getDescricao() {
     return this->descricao;
 }
 
-string OrdemServico::getStatus()
-{
+string OrdemServico::getStatus() {
     return this->status;
 }
 
-string OrdemServico::getValor()
-{
+string OrdemServico::getValor() {
     return this->valor;
 }
 
-string OrdemServico::getVeiculo()
-{
+string OrdemServico::getVeiculo() {
     return this->veiculo;
 }
 
-string OrdemServico::getCliente()
-{
+string OrdemServico::getCliente() {
     return this->cliente;
 }
 
-void OrdemServico::setId(int id)
-{
+//Implementação dos setters
+void OrdemServico::setId(int id) {
     this->id = id;
 }
 
-void OrdemServico::setData(string data)
-{
+void OrdemServico::setData(string data) {
     this->data = data;
 }
 
-void OrdemServico::setDescricao(string descricao)
-{
+void OrdemServico::setDescricao(string descricao) {
     this->descricao = descricao;
 }
 
-void OrdemServico::setStatus(string status)
-{
+void OrdemServico::setStatus(string status) {
     this->status = status;
 }
 
-void OrdemServico::setValor(string valor)
-{
+void OrdemServico::setValor(string valor) {
     this->valor = valor;
 }
 
-void OrdemServico::setVeiculo(string veiculo)
-{
+void OrdemServico::setVeiculo(string veiculo) {
     this->veiculo = veiculo;
 }
 
-void OrdemServico::setCliente(string cliente)
-{
+void OrdemServico::setCliente(string cliente) {
     this->cliente = cliente;
 }
 
-void OrdemServico::addPeca(string peca)
-{
+//Adiciona uma nova peça à lista de peças da ordem de serviço
+void OrdemServico::addPeca(string peca) {
     this->pecas.push_back(peca);
 }
 
-void OrdemServico::addServico(string servico)
-{
+//Adiciona um novo serviço à lista de serviços da ordem de serviço
+void OrdemServico::addServico(string servico) {
     this->servicos.push_back(servico);
 }

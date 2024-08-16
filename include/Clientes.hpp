@@ -5,23 +5,24 @@
 #include <vector>
 using namespace std;
 
+//Classe que representa os clientes do sistema
 class Clientes {
 private:
-    int id;
-    string nome;
-    string cpf;
-    string telefone;
-    string email;
-    string rua;
-    string bairro;
-    string cidade;
-    string estado;
-    string cep;
-    string numero;
-    vector<Veiculos*> veiculos; // Relacionamento com veiculos pois um cliente pode ter vários veículos
-
+    int id;                 //Identificador único do cliente
+    string nome;            //Nome do cliente
+    string cpf;             //CPF do cliente
+    string telefone;        //Telefone do cliente
+    string email;           //Email do cliente
+    string rua;             //Endereço: rua do cliente
+    string bairro;          //Endereço: bairro do cliente
+    string cidade;          //Endereço: cidade do cliente
+    string estado;          //Endereço: estado do cliente
+    string cep;             //Endereço: CEP do cliente
+    string numero;          //Endereço: número da casa do cliente
+    vector<Veiculos*> veiculos; //Relacionamento com veículos: um cliente pode ter vários veículos
 
 public:
+    //Construtor que inicializa todos os atributos do cliente
     Clientes(
         int id,
         const string& nome,
@@ -36,7 +37,10 @@ public:
         const string& numero
     );
     
+    //Destrutor
     ~Clientes();
+
+    //Setters: métodos para definir os atributos do cliente
     void setId(int id);
     void setNome(const string& nome);
     void setCpf(const string& cpf);
@@ -48,8 +52,9 @@ public:
     void setEstado(const string& estado);
     void setCep(const string& cep);
     void setNumero(const string& numero);
-    void addVeiculo(Veiculos* veiculo);
+    void addVeiculo(Veiculos* veiculo); //Adiciona um veículo à lista de veículos do cliente
 
+    //Getters: métodos para acessar os atributos do cliente
     int getId() const;
     string getNome() const;
     string getCpf() const;
@@ -61,12 +66,9 @@ public:
     string getEstado() const;
     string getCep() const;
     string getNumero() const;
+    vector<Veiculos*> getVeiculos() const; //Retorna a lista de veículos do cliente
+    int getQuantosVeiculos(); //Retorna a quantidade de veículos do cliente
 
-    vector<Veiculos*> getVeiculos() const;
-    int getQuantosVeiculos();
-
-
-
+    //Método que imprime os dados do cliente no console
     void print();
-
 };
