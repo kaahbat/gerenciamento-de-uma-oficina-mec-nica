@@ -7,7 +7,8 @@ private:
     vector<Funcionario*> usuarios;  //Lista de usuários (mecânicos, vendedores, etc.)
     vector<Clientes*> clientes;     //Lista de clientes (não implementada totalmente aqui)
     vector<OrdemServico*> servicos; //Lista de ordens de serviço (não implementada totalmente aqui)
-   
+    friend class Vendedores;
+    friend class Mecanicos;
 public:
     //Construtor default
     SistemaLogin();

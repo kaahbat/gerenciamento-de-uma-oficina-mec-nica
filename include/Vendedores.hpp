@@ -1,5 +1,6 @@
 #pragma once
 #include "Funcionario.hpp"
+#include "SistemaLogin.hpp"
 #include "Clientes.hpp"
 #include "Veiculos.hpp"
 #include "OrdemServico.hpp"
@@ -28,18 +29,18 @@ public:
     string getTipo() const override;
 
     //Métodos para adicionar clientes e ordens de serviço
-    void addCliente(Clientes* cliente);
-    void addOrdemServico(OrdemServico* ordem);
+    void addCliente(Clientes* cliente,SistemaLogin& sistema);
+    void addOrdemServico(OrdemServico* ordem,SistemaLogin& sistema);
 
     //Métodos para obter os clientes e ordens de serviço associados ao vendedor
-    vector<Clientes*> getClientes();
-    vector<OrdemServico*> getOrdemServico();
+    vector<Clientes*> getClientes(SistemaLogin& sistema);
+    vector<OrdemServico*> getOrdemServico(SistemaLogin& sistema);
 
     //Métodos para obter a quantidade de clientes e ordens de serviço
-    int getQuantosClientes();
-    int getQuantosOrdemServico();
+    int getQuantosClientes(SistemaLogin& sistema);
+    int getQuantosOrdemServico( SistemaLogin& sistema);
 
     //Métodos para remover clientes e ordens de serviço por ID
-    void removeCliente(int id);
-    void removeOrdemServico(int id);
+    void removeCliente(int id,SistemaLogin& sistema);
+    void removeOrdemServico(int id,SistemaLogin& sistema);
 };

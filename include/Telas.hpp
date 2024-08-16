@@ -32,10 +32,10 @@ public:
     void menuPrincipal();
 
     //Método para exibir o menu específico para mecânicos
-    void menuMecanicos(Mecanicos* mecanico);
+    void menuMecanicos(Mecanicos* mecanico, SistemaLogin* sistema);
 
     //Método para exibir o menu específico para vendedores
-    void menuVendedores(Vendedores* vendedor);
+    void menuVendedores(Vendedores* vendedor, SistemaLogin* sistema);   
 
     //Método para exibir o menu específico para administradores
     void menuAdmin(SistemaLogin* sistema);

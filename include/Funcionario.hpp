@@ -11,9 +11,9 @@ class Funcionario {
 protected:
     string login;               //Login do funcionário
     string senha;               //Senha do funcionário
-    vector<Clientes*> clientes; //Vetor de ponteiros para Clientes associados ao funcionário
-    vector<OrdemServico*> servicos; //Vetor de ponteiros para Ordens de Serviço associadas ao funcionário
-
+    //vector<Clientes*> clientes; //Vetor de ponteiros para Clientes associados ao funcionário
+    //vector<OrdemServico*> servicos; //Vetor de ponteiros para Ordens de Serviço associadas ao funcionário
+    
 private:
     int id;                     //Identificador único do funcionário
     string nome;                //Nome do funcionário

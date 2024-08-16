@@ -1,7 +1,7 @@
 #pragma once
 #include "Funcionario.hpp"
 #include "OrdemServico.hpp"
-
+#include "SistemaLogin.hpp"
 //Classe Mecanicos que herda de Funcionario e representa um mecânico no sistema
 class Mecanicos : public Funcionario {
 
@@ -24,8 +24,8 @@ public:
     string getTipo() const override;
 
     //Retorna o vetor de Ordens de Serviço associadas ao mecânico
-    vector<OrdemServico*> getOrdemServico();
+    vector<OrdemServico*> getOrdemServico(SistemaLogin& sistema);
 
     //Retorna o número de Ordens de Serviço associadas ao mecânico
-    int getQuantosOrdemServico();
+    int getQuantosOrdemServico(SistemaLogin& sistema);
 };
