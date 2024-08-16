@@ -90,17 +90,6 @@ string Telas::lerString()
     getline(cin, str);
     return str;
 }
-void Telas::menuClientes()
-{
-}
-
-void Telas::menuVeiculos()
-{
-}
-
-void Telas::menuFuncionarios()
-{
-}
 
 void Telas::menuMecanicos(Mecanicos *mecanico)
 {
@@ -117,26 +106,29 @@ void Telas::menuMecanicos(Mecanicos *mecanico)
         case 1:
         {
             cout << "--- ORDENS DE SERVIÇO ABERTAS ---" << endl;
-            for (int i = 0; i < sistema->getQuantosUsuarios(); i++)
-            {
-                if (sistema->getUsuarios()[i]->getTipo() == "Vendedor")
-                {
 
-                    for (int j = 0; j < mecanico->getQuantosOrdemServico(); j++)
-                    {
-                        if (mecanico->getOrdemServico()[j]->getStatus() == "Aprovada")
-                        {
-                            cout << "Ordem de Serviço " << mecanico->getOrdemServico()[j]->getId() << endl;
-                            cout << "Data: " << mecanico->getOrdemServico()[j]->getData() << endl;
-                            cout << "Descrição: " << mecanico->getOrdemServico()[j]->getDescricao() << endl;
-                            cout << "Valor: " << mecanico->getOrdemServico()[j]->getValor() << endl;
-                            cout << "Veículo: " << mecanico->getOrdemServico()[j]->getVeiculo() << endl;
-                            cout << "Cliente: " << mecanico->getOrdemServico()[j]->getCliente() << endl;
-                            cout << "----------------------------------------" << endl;
-                        }
-                    }
+
+            printf("Quantos servicos %d\n", mecanico->getQuantosOrdemServico());
+
+            for (int j = 0; j < mecanico->getQuantosOrdemServico(); j++)
+            {   
+                printf("Quantos servicos %d\n", mecanico->getQuantosOrdemServico());
+                printf("teste");
+                printf(mecanico->getOrdemServico()[j]->getStatus().c_str());
+
+                if (mecanico->getOrdemServico()[j]->getStatus() == "Aprovada")
+                {
+                    cout << "Ordem de Serviço " << mecanico->getOrdemServico()[j]->getId() << endl;
+                    cout << "Data: " << mecanico->getOrdemServico()[j]->getData() << endl;
+                    cout << "Descrição: " << mecanico->getOrdemServico()[j]->getDescricao() << endl;
+                    cout << "Valor: " << mecanico->getOrdemServico()[j]->getValor() << endl;
+                    cout << "Veículo: " << mecanico->getOrdemServico()[j]->getVeiculo() << endl;
+                    cout << "Cliente: " << mecanico->getOrdemServico()[j]->getCliente() << endl;
+                    cout << "----------------------------------------" << endl;
                 }
             }
+                
+            
             break;
 
         case 2:
@@ -144,6 +136,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico)
             int opcaoServico;
             cout << "Escolha uma ordem de serviço para cadastrar os serviços executados e peças utilizadas: ";
             cin >> opcaoServico;
+
             if (opcaoServico > 0 && opcaoServico <= sistema->getQuantosUsuarios())
             {
                 string servico, peca;

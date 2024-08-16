@@ -23,9 +23,6 @@ public:
     Telas();
     ~Telas();
     void menuPrincipal();
-    void menuClientes();
-    void menuVeiculos();
-    void menuFuncionarios();
     void menuMecanicos( Mecanicos* mecanico);
     void menuVendedores(Vendedores* vendedor);
     void menuAdmin(SistemaLogin* sistema);

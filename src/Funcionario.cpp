@@ -92,7 +92,6 @@ string Funcionario::getEmail()
 
 
 
-
 void Funcionario::print()
 {
     cout << "ID: " << id << endl;

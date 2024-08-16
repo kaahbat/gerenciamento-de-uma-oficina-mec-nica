@@ -4,6 +4,8 @@
 class SistemaLogin {
 private:
     vector<Funcionario*> usuarios;
+    vector<Clientes*> clientes;
+    vector<OrdemServico*> servicos;   
     
 public:
     SistemaLogin();
