@@ -69,6 +69,5 @@ public:
     vector<Veiculos*> getVeiculos() const; //Retorna a lista de veículos do cliente
     int getQuantosVeiculos(); //Retorna a quantidade de veículos do cliente
 
-    //Método que imprime os dados do cliente no console
-    void print();
+    
 };

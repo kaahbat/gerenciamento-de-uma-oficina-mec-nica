@@ -47,6 +47,9 @@ void Telas::menuPrincipal()
             break;
         }
     } while (opcao != 2); // Continua exibindo o menu até que o usuário escolha sair
+
+    // Deleta o objeto sistema ao final da execução
+    delete sistema;
 }
 
 // Função que exibe a tela de login
@@ -135,7 +138,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                 if (mecanico->getOrdemServico(*sistema)[j]->getStatus() == "Aprovada" || mecanico->getOrdemServico(*sistema)[j]->getStatus() == "Pendente")
                 {
 
-                    cout << "Ordem de Serviço " << j+1 << endl;
+                    cout << "Ordem de Serviço " << j + 1 << endl;
                     cout << "Status: " << mecanico->getOrdemServico(*sistema)[j]->getStatus() << endl;
                     cout << "Data: " << mecanico->getOrdemServico(*sistema)[j]->getData() << endl;
                     cout << "Descrição: " << mecanico->getOrdemServico(*sistema)[j]->getDescricao() << endl;
@@ -161,7 +164,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                 if (mecanico->getOrdemServico(*sistema)[j]->getStatus() == "Pendente")
                 {
 
-                    cout << "Ordem de Serviço " << j+1 << endl;
+                    cout << "Ordem de Serviço " << j + 1 << endl;
                     cout << "Status: " << mecanico->getOrdemServico(*sistema)[j]->getStatus() << endl;
                     cout << "Data: " << mecanico->getOrdemServico(*sistema)[j]->getData() << endl;
                     cout << "Descrição: " << mecanico->getOrdemServico(*sistema)[j]->getDescricao() << endl;
@@ -188,7 +191,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                     peca = lerString();
                     cout << "Digite o valor da peça: com ponto para separar os centavos: ";
                     cin >> valorpeca;
-                    float valorservicoTotal = stof(valorservico) + stof(valorpeca)+stof(mecanico->getOrdemServico(*sistema)[opcaoServico - 1]->getValor());
+                    float valorservicoTotal = stof(valorservico) + stof(valorpeca) + stof(mecanico->getOrdemServico(*sistema)[opcaoServico - 1]->getValor());
                     ostringstream oss;
                     oss << fixed << setprecision(2) << valorservicoTotal;
                     string valorservicoF = oss.str();
@@ -202,7 +205,6 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                     cout << "0. Não" << endl;
                     cout << "Escolha uma opção: ";
                     cin >> opcaoMaisPecasServicos;
-                    
 
                 } while (opcaoMaisPecasServicos != 0);
             }
@@ -216,6 +218,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
         {
 
             cout << "--- ORDENS DE SERVIÇO ABERTAS ---" << endl;
+            
             if (mecanico->getQuantosOrdemServico(*sistema) == 0)
             {
                 cout << "Nenhuma ordem de serviço aberta." << endl;
@@ -224,7 +227,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
             {
                 if (mecanico->getOrdemServico(*sistema)[j]->getStatus() == "Aprovada")
                 {
-                    cout << "Ordem de Serviço " << j+1 << endl;
+                    cout << "Ordem de Serviço " << j + 1 << endl;
                     cout << "Data: " << mecanico->getOrdemServico(*sistema)[j]->getData() << endl;
                     cout << "Descrição: " << mecanico->getOrdemServico(*sistema)[j]->getDescricao() << endl;
                     cout << "Valor: R$ " << mecanico->getOrdemServico(*sistema)[j]->getValor() << endl;
@@ -250,7 +253,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                     peca = lerString();
                     cout << "Digite o valor da peça: com ponto para separar os centavos: ";
                     cin >> valorpeca;
-                    float valorservicoTotal = stof(valorservico) + stof(valorpeca)+stof(mecanico->getOrdemServico(*sistema)[opcaoServico - 1]->getValor());
+                    float valorservicoTotal = stof(valorservico) + stof(valorpeca) + stof(mecanico->getOrdemServico(*sistema)[opcaoServico - 1]->getValor());
                     ostringstream oss;
                     oss << fixed << setprecision(2) << valorservicoTotal;
                     string valorservicoF = oss.str();
@@ -266,7 +269,6 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                     cout << "0. Não" << endl;
                     cout << "Escolha uma opção: ";
                     cin >> opcaoMaisPecasServicos;
-                    
 
                 } while (opcaoMaisPecasServicos != 0);
             }
@@ -302,125 +304,143 @@ void Telas::menuVendedores(Vendedores *vendedor, SistemaLogin *sistema)
         {
         case 1:
         {
-            sistema->preenccherClientesOrdem(); // preenche a lista de clientes e ordens de serviço para nao precisar fazer manualmente toda vez que o programa é iniciado
+            //sistema->preenccherClientesOrdem(); // preenche a lista de clientes e ordens de serviço para nao precisar fazer manualmente toda vez que o programa é iniciado
 
-        /*
-            // Cadastro de cliente e veículo
-            string nome, cpf, telefone, email, rua, bairro, cidade, estado, cep, numero;
-            string marca, modelo, ano, placa, cor, combustivel;
-            int km;
-            cout << "--- CADASTRO DE CLIENTE ---" << endl;
-            cout << "Digite o nome do cliente: ";
-            cin >> nome;
-            cout << "Digite o CPF do cliente: ";
-            cin >> cpf;
-            cout << "Digite o telefone do cliente: ";
-            cin >> telefone;
-            cout << "Digite o email do cliente: ";
-            cin >> email;
-            cout << "Digite a rua do cliente: ";
-            cin >> rua;
-            cout << "Digite o bairro do cliente: ";
-            cin >> bairro;
-            cout << "Digite a cidade do cliente: ";
-            cin >> cidade;
-            cout << "Digite o estado do cliente: ";
-            cin >> estado;
-            cout << "Digite o CEP do cliente: ";
-            cin >> cep;
-            cout << "Digite o número do cliente: ";
-            cin >> numero;
+            
+                // Cadastro de cliente e veículo
+                string nome, cpf, telefone, email, rua, bairro, cidade, estado, cep, numero;
+                string marca, modelo, ano, placa, cor, combustivel;
+                int km;
+                cout << "--- CADASTRO DE CLIENTE ---" << endl;
+                cout << "Digite o nome do cliente: ";
+                cin >> nome;
+                cout << "Digite o CPF do cliente: ";
+                cin >> cpf;
+                cout << "Digite o telefone do cliente: ";
+                cin >> telefone;
+                cout << "Digite o email do cliente: ";
+                cin >> email;
+                cout << "Digite a rua do cliente: ";
+                cin >> rua;
+                cout << "Digite o bairro do cliente: ";
+                cin >> bairro;
+                cout << "Digite a cidade do cliente: ";
+                cin >> cidade;
+                cout << "Digite o estado do cliente: ";
+                cin >> estado;
+                cout << "Digite o CEP do cliente: ";
+                cin >> cep;
+                cout << "Digite o número do cliente: ";
+                cin >> numero;
 
-            // Criação do objeto Cliente e adição à lista de clientes do vendedor
-            Clientes *cliente = new Clientes(vendedor->getQuantosClientes(*sistema) + 1, nome, cpf, telefone, email, rua, bairro, cidade, estado, cep, numero);
-            vendedor->addCliente(cliente, *sistema);
-            cout << "Cliente cadastrado com sucesso!" << endl;
+                // Criação do objeto Cliente e adição à lista de clientes do vendedor
+                Clientes *cliente = new Clientes(vendedor->getQuantosClientes(*sistema) + 1, nome, cpf, telefone, email, rua, bairro, cidade, estado, cep, numero);
+                vendedor->addCliente(cliente, *sistema);
+                cout << "Cliente cadastrado com sucesso!" << endl;
 
-            int opcaoVeiculo;
-            do
-            {
-                // Cadastro de veículo
-                cout << "--- CADASTRO DE VEÍCULO ---" << endl;
-                cout << "Digite a marca do veículo: ";
-                cin >> marca;
-                cout << "Digite o modelo do veículo: ";
-                cin >> modelo;
-                cout << "Digite o ano do veículo: ";
-                cin >> ano;
-                cout << "Digite a placa do veículo: ";
-                cin >> placa;
-                cout << "Digite a cor do veículo: ";
-                cin >> cor;
-                cout << "Digite o combustível do veículo: ";
-                cin >> combustivel;
-                cout << "Digite a quilometragem do veículo: ";
-                cin >> km;
+                int opcaoVeiculo;
+                do
+                {
+                    // Cadastro de veículo
+                    cout << "--- CADASTRO DE VEÍCULO ---" << endl;
+                    cout << "Digite a marca do veículo: ";
+                    cin >> marca;
+                    cout << "Digite o modelo do veículo: ";
+                    cin >> modelo;
+                    cout << "Digite o ano do veículo: ";
+                    cin >> ano;
+                    cout << "Digite a placa do veículo: ";
+                    cin >> placa;
+                    cout << "Digite a cor do veículo: ";
+                    cin >> cor;
+                    cout << "Digite o combustível do veículo: ";
+                    cin >> combustivel;
+                    cout << "Digite a quilometragem do veículo: ";
+                    cin >> km;
 
-                // Criação do objeto Veículo e adição à lista de veículos do cliente
-                Veiculos *veiculo = new Veiculos(vendedor->getQuantosClientes(*sistema) + 1, placa, marca, modelo, cor, ano, km, combustivel);
-                cliente->addVeiculo(veiculo);
-                cout << "Veículo cadastrado com sucesso!" << endl;
+                    // Criação do objeto Veículo e adição à lista de veículos do cliente
+                    Veiculos *veiculo = new Veiculos(vendedor->getQuantosClientes(*sistema) + 1, placa, marca, modelo, cor, ano, km, combustivel);
+                    cliente->addVeiculo(veiculo);
+                    cout << "Veículo cadastrado com sucesso!" << endl;
 
-                cout << "Deseja cadastrar outro veículo?" << endl;
-                cout << "1. Sim" << endl;
-                cout << "0. Não" << endl;
-                cout << "Escolha uma opção: ";
-                cin >> opcaoVeiculo;
+                    cout << "Deseja cadastrar outro veículo?" << endl;
+                    cout << "1. Sim" << endl;
+                    cout << "0. Não" << endl;
+                    cout << "Escolha uma opção: ";
+                    cin >> opcaoVeiculo;
+                    delete veiculo;
 
-            } while (opcaoVeiculo != 0);*/
+                } while (opcaoVeiculo != 0);
+                delete cliente;
         }
         break;
 
         case 2:
         {
-            // Geração de ordem de serviço
-            int opcaoCliente;
-            for (int i = 0; i < vendedor->getQuantosClientes(*sistema); i++)
+            int continua = 1;
+            do
             {
-                // Exibe a lista de clientes para seleção
-                cout << i + 1 << ". " << vendedor->getClientes(*sistema)[i]->getNome() << endl;
-            }
-            cout << "Escolha um cliente para gerar a ordem de serviço: ";
-            cin >> opcaoCliente;
-
-            if (opcaoCliente > 0 && opcaoCliente <= vendedor->getQuantosClientes(*sistema))
-            {
-                int opcaoVeiculo;
-                for (int i = 0; i < vendedor->getClientes(*sistema)[opcaoCliente - 1]->getQuantosVeiculos(); i++)
+                // Geração de ordem de serviço
+                int opcaoCliente;
+                for (int i = 0; i < vendedor->getQuantosClientes(*sistema); i++)
                 {
-                    // Exibe a lista de veículos do cliente selecionado
-                    cout << i + 1 << ". " << vendedor->getClientes(*sistema)[opcaoCliente - 1]->getVeiculos()[i]->getPlaca() << endl;
+                    // Exibe a lista de clientes para seleção
+                    cout << i + 1 << ". " << vendedor->getClientes(*sistema)[i]->getNome() << endl;
                 }
-                cout << "Escolha um veículo para gerar a ordem de serviço: ";
-                cin >> opcaoVeiculo;
-
-                if (opcaoVeiculo > 0 && opcaoVeiculo <= vendedor->getClientes(*sistema)[opcaoCliente - 1]->getQuantosVeiculos())
+                cout << "Escolha um cliente para gerar a ordem de serviço: ";
+                cout << "Para voltar digite 0" << endl;
+                cin >> opcaoCliente;
+                if (opcaoCliente==0)
                 {
-                    string data, descricao, status, valor, veiculo, cliente;
-                    cout << "Digite a data da ordem de serviço: ";
-                    cin >> data;
-                    cout << "Digite a descrição da ordem de serviço: ";
-                    descricao = lerString(); // Assumindo que lerString() é uma função para ler uma string completa
-                    status = "Pendente";
-                    cout << "Digite o valor da ordem de serviço: com ponto para separar os centavos: ";
-                    cin >> valor;
+                    continua = 0;
+                }
 
-                    // Criação do objeto OrdemServico e adição à lista de ordens do vendedor
-                    veiculo = vendedor->getClientes(*sistema)[opcaoCliente - 1]->getVeiculos()[opcaoVeiculo - 1]->getPlaca();
-                    cliente = vendedor->getClientes(*sistema)[opcaoCliente - 1]->getNome();
-                    OrdemServico *ordem = new OrdemServico(vendedor->getQuantosOrdemServico(*sistema) + 1, data, descricao, status, valor, veiculo, cliente);
-                    vendedor->addOrdemServico(ordem, *sistema);
-                    cout << "Ordem de serviço gerada com sucesso!" << endl;
+                if (opcaoCliente > 0 && opcaoCliente <= vendedor->getQuantosClientes(*sistema))
+                {
+                    int opcaoVeiculo;
+                    for (int i = 0; i < vendedor->getClientes(*sistema)[opcaoCliente - 1]->getQuantosVeiculos(); i++)
+                    {
+                        // Exibe a lista de veículos do cliente selecionado
+                        cout << i + 1 << ". " << vendedor->getClientes(*sistema)[opcaoCliente - 1]->getVeiculos()[i]->getPlaca() << endl;
+                    }
+                    cout << "Escolha um veículo para gerar a ordem de serviço: ";
+                    cin >> opcaoVeiculo;
+                    if(opcaoVeiculo==0)
+                    {
+                        continua = 0;
+                    }
+
+                    if (opcaoVeiculo > 0 && opcaoVeiculo <= vendedor->getClientes(*sistema)[opcaoCliente - 1]->getQuantosVeiculos())
+                    {
+                        string data, descricao, status, valor, veiculo, cliente;
+                        cout << "Digite a data da ordem de serviço: ";
+                        cin >> data;
+                        cout << "Digite a descrição da ordem de serviço: ";
+                        descricao = lerString(); // Assumindo que lerString() é uma função para ler uma string completa
+                        status = "Pendente";
+                        cout << "Digite o valor da ordem de serviço: com ponto para separar os centavos: ";
+                        cin >> valor;
+
+                        // Criação do objeto OrdemServico e adição à lista de ordens do vendedor
+                        veiculo = vendedor->getClientes(*sistema)[opcaoCliente - 1]->getVeiculos()[opcaoVeiculo - 1]->getPlaca();
+                        cliente = vendedor->getClientes(*sistema)[opcaoCliente - 1]->getNome();
+                        OrdemServico *ordem = new OrdemServico(vendedor->getQuantosOrdemServico(*sistema) + 1, data, descricao, status, valor, veiculo, cliente);
+                        vendedor->addOrdemServico(ordem, *sistema);
+                        cout << "Ordem de serviço gerada com sucesso!" << endl;
+                        delete ordem;// Deleta o objeto ordem ao final da execução
+                    }
+                    else
+                    {
+                        cout << "Opção inválida. Tente novamente." << endl;
+
+                    }
                 }
                 else
                 {
                     cout << "Opção inválida. Tente novamente." << endl;
                 }
-            }
-            else
-            {
-                cout << "Opção inválida. Tente novamente." << endl;
-            }
+
+            }while (continua != 0);
         }
         break;
 
@@ -432,12 +452,13 @@ void Telas::menuVendedores(Vendedores *vendedor, SistemaLogin *sistema)
             {
                 // Visualização e aprovação de ordens de serviço pendentes
                 cout << "--- ORDENS DE SERVIÇO PENDENTES DE APROVAÇÃO ---" << endl;
+                cout << "Para voltar digite 0" << endl;
                 for (int i = 0; i < vendedor->getQuantosOrdemServico(*sistema); i++)
                 {
                     if (vendedor->getOrdemServico(*sistema)[i]->getStatus() == "Pendente")
                     {
                         // Exibe detalhes das ordens de serviço pendentes
-                        cout << "Ordem de Serviço " << i+1 << endl;
+                        cout << "Ordem de Serviço " << i + 1 << endl;
                         cout << "Data: " << vendedor->getOrdemServico(*sistema)[i]->getData() << endl;
                         cout << "Descrição: " << vendedor->getOrdemServico(*sistema)[i]->getDescricao() << endl;
                         cout << "Valor: R$ " << vendedor->getOrdemServico(*sistema)[i]->getValor() << endl;
@@ -497,36 +518,44 @@ void Telas::menuVendedores(Vendedores *vendedor, SistemaLogin *sistema)
 
         case 4:
         {
-            // Visualização e fechamento de ordens de serviço executadas
-            cout << "--- ORDENS DE SERVIÇO EXECUTADAS ---" << endl;
-            for (int i = 0; i < vendedor->getQuantosOrdemServico(*sistema); i++)
-            {
-                if (vendedor->getOrdemServico(*sistema)[i]->getStatus() == "Executada")
+            int continua;
+            do{
+                // Visualização e fechamento de ordens de serviço executadas
+                cout << "--- ORDENS DE SERVIÇO EXECUTADAS ---" << endl;
+                cout << "Para voltar digite 0" << endl;
+                for (int i = 0; i < vendedor->getQuantosOrdemServico(*sistema); i++)
                 {
-                    // Exibe detalhes das ordens de serviço executadas
-                    cout << "Ordem de Serviço " << i+1 << endl;
-                    cout << "Data: " << vendedor->getOrdemServico(*sistema)[i]->getData() << endl;
-                    cout << "Descrição: " << vendedor->getOrdemServico(*sistema)[i]->getDescricao() << endl;
-                    cout << "Valor: R$ " << vendedor->getOrdemServico(*sistema)[i]->getValor() << endl;
-                    cout << "Veículo: " << vendedor->getOrdemServico(*sistema)[i]->getVeiculo() << endl;
-                    cout << "Cliente: " << vendedor->getOrdemServico(*sistema)[i]->getCliente() << endl;
-                    cout << "----------------------------------------" << endl;
+                    if (vendedor->getOrdemServico(*sistema)[i]->getStatus() == "Executada")
+                    {
+                        // Exibe detalhes das ordens de serviço executadas
+                        cout << "Ordem de Serviço " << i + 1 << endl;
+                        cout << "Data: " << vendedor->getOrdemServico(*sistema)[i]->getData() << endl;
+                        cout << "Descrição: " << vendedor->getOrdemServico(*sistema)[i]->getDescricao() << endl;
+                        cout << "Valor: R$ " << vendedor->getOrdemServico(*sistema)[i]->getValor() << endl;
+                        cout << "Veículo: " << vendedor->getOrdemServico(*sistema)[i]->getVeiculo() << endl;
+                        cout << "Cliente: " << vendedor->getOrdemServico(*sistema)[i]->getCliente() << endl;
+                        cout << "----------------------------------------" << endl;
+                    }
                 }
-            }
-            int opcaoFechamento;
-            cout << "Escolha uma opção: ";
-            cin >> opcaoFechamento;
-
-            if (opcaoFechamento > 0 && opcaoFechamento <= vendedor->getQuantosOrdemServico(*sistema))
-            {
-                // Fechamento da ordem de serviço selecionada
-                vendedor->getOrdemServico(*sistema)[opcaoFechamento - 1]->setStatus("Fechada");
-                cout << "Ordem de serviço fechada com sucesso!" << endl;
-            }
-            else
-            {
-                cout << "Opção inválida. Tente novamente." << endl;
-            }
+                int opcaoFechamento;
+                cout << "Escolha uma opção: ";
+                cin >> opcaoFechamento;
+                if (opcaoFechamento==0)
+                {
+                    continua = 0;
+                }
+                
+                if (opcaoFechamento > 0 && opcaoFechamento <= vendedor->getQuantosOrdemServico(*sistema))
+                {
+                    // Fechamento da ordem de serviço selecionada
+                    vendedor->getOrdemServico(*sistema)[opcaoFechamento - 1]->setStatus("Fechada");
+                    cout << "Ordem de serviço fechada com sucesso!" << endl;
+                }
+                else
+                {
+                    cout << "Opção inválida. Tente novamente." << endl;
+                }
+            }while(continua!=0);
         }
         break;
 

@@ -77,11 +77,3 @@ string Funcionario::getEmail() {
     return email;
 }
 
-//Método que imprime os dados do funcionário no console
-void Funcionario::print() {
-    cout << "ID: " << id << endl;
-    cout << "Nome: " << nome << endl;
-    cout << "CPF: " << cpf << endl;
-    cout << "Telefone: " << telefone << endl;
-    cout << "Email: " << email << endl;  
-}

@@ -23,11 +23,13 @@ int Vendedores::getQuantosOrdemServico( SistemaLogin& sistema) {
 //Remove um cliente pelo índice (ID) no vetor
 void Vendedores::removeCliente(int id, SistemaLogin& sistema) {
     sistema.clientes.erase(sistema.clientes.begin() + id);
+    delete sistema.clientes[id];
 }
 
 //Remove uma ordem de serviço pelo índice (ID) no vetor
 void Vendedores::removeOrdemServico(int id ,SistemaLogin& sistema) {
     sistema.servicos.erase(sistema.servicos.begin() + id);
+    delete sistema.servicos[id];
 }
 
 

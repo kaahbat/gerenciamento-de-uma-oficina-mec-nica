@@ -46,5 +46,6 @@ public:
     //Remove um usuário do sistema pelo id
     void removeUsuario(int id);
 
+    //Adiciona um cliente ao sistema 
     void preenccherClientesOrdem();
 };

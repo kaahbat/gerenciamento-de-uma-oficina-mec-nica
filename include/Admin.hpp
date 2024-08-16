@@ -24,6 +24,5 @@ public:
     //Método sobrescrito que retorna o tipo de funcionário (Admin)
     string getTipo() const override;
 
-    //Método que define a capacidade do Admin de gerenciar o sistema
-    void gerenciarSistema() const;
+    
 };

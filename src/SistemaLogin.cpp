@@ -20,7 +20,17 @@ Funcionario* SistemaLogin::autenticar(string& login, string& senha) const {
 }
 
 //Destrutor
-SistemaLogin::~SistemaLogin() {}
+SistemaLogin::~SistemaLogin() {
+    
+    for (auto& clientes : clientes) {//Deleta todos os clientes
+        delete clientes;
+    }
+    for (auto& servicos : servicos) {//Deleta todos os serviços
+        delete servicos;
+    }
+    servicos.clear();//Limpa o vetor de serviços
+
+}
 
 //Retorna a lista completa de usuários no sistema
 vector<Funcionario*> SistemaLogin::getUsuarios() const {
@@ -90,6 +100,7 @@ void SistemaLogin::removeUsuario(int id) {
     for (auto it = usuarios.begin(); it != usuarios.end(); it++) {
         if ((*it)->getId() == id) {
             usuarios.erase(it);
+            
             break;
         }
     }
@@ -123,6 +134,16 @@ void SistemaLogin::preenccherClientesOrdem()
     servicos.push_back(ordem2);
     servicos.push_back(ordem3);
     servicos.push_back(ordem4);
+
+    delete cliente1;
+    delete cliente2;
+    delete cliente3;
+    delete cliente4;
+    delete ordem1;
+    delete ordem2;
+    delete ordem3;
+    delete ordem4;
+    
 
 
 }

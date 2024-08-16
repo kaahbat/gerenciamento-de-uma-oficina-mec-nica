@@ -58,6 +58,5 @@ public:
     void setEmail(string email);
     string getEmail();
 
-    //Método que imprime os dados do funcionário no console
-    void print();
+
 };

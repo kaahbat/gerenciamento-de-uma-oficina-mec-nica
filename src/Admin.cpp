@@ -14,7 +14,3 @@ string Admin::getTipo() const {
     return "Admin";
 }
 
-//Implementação do método que simula a ação de gerenciar o sistema, exibindo uma mensagem
-void Admin::gerenciarSistema() const {
-    std::cout << "Admin gerenciando o sistema." << std::endl;
-}

@@ -6,7 +6,8 @@
 #include <vector>
 #include <limits>
 #include <sstream>   // Necessário para std::ostringstream
-#include <iomanip>   // Necessário para std::setw
+#include <iomanip>  
+ // Necessário para std::setw
 using namespace std;
 
 //Inclui os headers dos outros componentes do sistema

@@ -18,6 +18,9 @@ Clientes::Clientes(int id, const string & nome, const string & cpf, const string
 
 //Destrutor da classe Clientes, não realiza nenhuma operação específica
 Clientes::~Clientes() {
+    for(auto veiculo : veiculos) {
+        delete veiculo;
+    }
 }
 
 //Implementação dos setters
@@ -125,17 +128,3 @@ int Clientes::getQuantosVeiculos() {
     return veiculos.size();
 }
 
-//Imprime os dados do cliente no console
-void Clientes::print() {
-    cout << " Cliente: " << id << endl;
-    cout << "Nome: " << nome << endl;
-    cout << "CPF: " << cpf << endl;
-    cout << "Telefone: " << telefone << endl;
-    cout << "Email: " << email << endl;
-    cout << "Rua: " << rua << endl;
-    cout << "Bairro: " << bairro << endl;
-    cout << "Cidade: " << cidade << endl;
-    cout << "Estado: " << estado << endl;
-    cout << "CEP: " << cep << endl;
-    cout << "Numero: " << numero << endl;
-}

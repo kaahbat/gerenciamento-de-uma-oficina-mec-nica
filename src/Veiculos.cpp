@@ -83,14 +83,3 @@ string Veiculos::getCombustivel() {
     return combustivel;
 }
 
-//Implementação do método para imprimir as informações do veículo
-void Veiculos::print() {
-    cout << "Veiculo: " << id << endl;
-    cout << "Placa: " << placa << endl;
-    cout << "Marca: " << marca << endl;
-    cout << "Modelo: " << modelo << endl;
-    cout << "Cor: " << cor << endl;
-    cout << "Ano: " << ano << endl;
-    cout << "Km: " << km << endl;
-    cout << "Combustivel: " << combustivel << endl;
-}
