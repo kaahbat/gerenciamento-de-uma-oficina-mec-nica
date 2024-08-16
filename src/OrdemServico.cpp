@@ -81,3 +81,19 @@ void OrdemServico::addPeca(string peca) {
 void OrdemServico::addServico(string servico) {
     this->servicos.push_back(servico);
 }
+
+void OrdemServico::printaServicos()
+{
+    for (size_t i = 0; i < servicos.size(); i++)
+    {
+        cout << servicos[i] << endl;
+    }
+}
+
+void OrdemServico::printaPecas()
+{
+    for (size_t i = 0; i < pecas.size(); i++)
+    {
+        cout << pecas[i] << endl;
+    }
+}

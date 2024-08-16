@@ -56,4 +56,10 @@ public:
 
     //Adiciona um serviço à lista de serviços da ordem de serviço
     void addServico(string servico);
+
+    
+    void printaServicos();
+    void printaPecas();
+
+
 };

@@ -7,8 +7,8 @@ private:
     vector<Funcionario*> usuarios;  //Lista de usuários (mecânicos, vendedores, etc.)
     vector<Clientes*> clientes;     //Lista de clientes (não implementada totalmente aqui)
     vector<OrdemServico*> servicos; //Lista de ordens de serviço (não implementada totalmente aqui)
-    friend class Vendedores;
-    friend class Mecanicos;
+    friend class Vendedores;   //Permite a classe Vendedores acessar os atributos privados
+    friend class Mecanicos;     //Permite a classe Mecanicos acessar os atributos privados
 public:
     //Construtor default
     SistemaLogin();
@@ -45,4 +45,6 @@ public:
 
     //Remove um usuário do sistema pelo id
     void removeUsuario(int id);
+
+    void preenccherClientesOrdem();
 };

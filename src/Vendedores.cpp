@@ -30,6 +30,7 @@ void Vendedores::removeOrdemServico(int id ,SistemaLogin& sistema) {
     sistema.servicos.erase(sistema.servicos.begin() + id);
 }
 
+
 //Retorna o tipo do funcionário, neste caso, "Vendedor"
 string Vendedores::getTipo() const {
     return "Vendedor";

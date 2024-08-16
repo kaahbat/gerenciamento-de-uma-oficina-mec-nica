@@ -43,4 +43,6 @@ public:
     //Métodos para remover clientes e ordens de serviço por ID
     void removeCliente(int id,SistemaLogin& sistema);
     void removeOrdemServico(int id,SistemaLogin& sistema);
+
+
 };
