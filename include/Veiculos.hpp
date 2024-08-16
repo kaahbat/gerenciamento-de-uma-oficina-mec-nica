@@ -53,6 +53,5 @@ public:
     int getKm();
     string getCombustivel();
 
-    // Método para imprimir as informações do veículo
-    void print();
+   
 };

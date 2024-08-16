@@ -15,11 +15,11 @@ void Telas::menuPrincipal()
 {
     // Adiciona usuários ao sistema na inicialização do menu principal
     sistema->addUsuario(new Admin("admin", "admin", 1, "lucas", "11111111111", "31999999999", "admin@1"));
-    sistema->addUsuario(new Mecanicos("mecanico1", "mecanico1", 2, "carlos", "22222222222", "31999999998", "mecanico@1"));
-    sistema->addUsuario(new Mecanicos("mecanico2", "mecanico2", 3, "carlos", "22222222222", "31999999998", "mecanico@1"));
+    sistema->addUsuario(new Mecanicos("mecanico", "mecanico", 2, "carlos", "22222222222", "31999999998", "mecanico@1"));
+    sistema->addUsuario(new Mecanicos("mecanico1", "mecanico1", 3, "carlos", "22222222222", "31999999998", "mecanico@1"));
     sistema->addUsuario(new Vendedores("vendedor", "vendedor", 4, "joao", "33333333333", "31999999997", "vendedor@1"));
-    sistema->addUsuario(new Vendedores("vendedor2", "vendedor2", 5, "joao", "33333333333", "31999999997", "vendedor@1"));
-    sistema->addUsuario(new Vendedores("vendedor3", "vendedor3", 6, "joao", "33333333333", "31999999997", "vendedor@1"));
+    sistema->addUsuario(new Vendedores("vendedor1", "vendedor1", 5, "joao", "33333333333", "31999999997", "vendedor@1"));
+    sistema->addUsuario(new Vendedores("vendedor1", "vendedor1", 6, "joao", "33333333333", "31999999997", "vendedor@1"));
 
     int opcao;
     do
@@ -70,7 +70,7 @@ void Telas::menuLogin()
     {
         return;
     }
-
+    // Autentica o usuário com base no login e senha fornecidos
     Funcionario *usuarioAutenticado = sistema->autenticar(login, senha);
     if (usuarioAutenticado != nullptr)
     {
@@ -127,6 +127,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
         {
         case 1:
         {
+            // Exibe as ordens de serviço abertas
             cout << "--- ORDENS DE SERVIÇO ABERTAS ---" << endl;
             if (mecanico->getQuantosOrdemServico(*sistema) == 0)
             {
@@ -152,7 +153,8 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
         break;
 
         case 2:
-        {
+        {   
+            // Exibe as ordens de serviço pendentes
             cout << "--- ORDENS DE SERVIÇO ABERTAS ---" << endl;
             if (mecanico->getQuantosOrdemServico(*sistema) == 0)
             {
@@ -182,6 +184,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
                 int opcaoMaisPecasServicos;
                 do
                 {
+                    // Atualização do valor total do serviço e peças
                     string servico, peca, valorservico, valorpeca;
                     cout << "Digite o serviço a ser executado: ";
                     servico = lerString();
@@ -216,7 +219,7 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
         break;
         case 3:
         {
-
+            // Exibe as ordens de serviço executadas
             cout << "--- ORDENS DE SERVIÇO ABERTAS ---" << endl;
             
             if (mecanico->getQuantosOrdemServico(*sistema) == 0)
@@ -243,7 +246,8 @@ void Telas::menuMecanicos(Mecanicos *mecanico, SistemaLogin *sistema)
             {
                 int opcaoMaisPecasServicos;
                 do
-                {
+                {   
+                    // Cadastro de serviços executados e peças utilizadas
                     string servico, peca, valorservico, valorpeca;
                     cout << "Digite o serviço a ser executado: ";
                     servico = lerString();
@@ -575,7 +579,8 @@ void Telas::menuAdmin(SistemaLogin *sistema)
     string loginM, senhaM, nomeM, cpfM, telefoneM, emailM;
 
     do
-    {
+    {   
+        // Menu de edição de vendedores e mecânicos
         cout << "----- MENU ADMINISTRADOR -----" << endl;
         cout << "Para voltar digite 0" << endl;
         cout << "1. Editar dados de Vendedores" << endl;
@@ -602,6 +607,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
                 int opcaoEditarDados;
                 do
                 {
+                    // Menu de edição de dados do vendedor selecionado
                     cout << "----- EDITAR DADOS -----" << endl;
                     cout << "Para voltar digite 0" << endl;
                     cout << "1. Editar nome" << endl;
@@ -681,7 +687,8 @@ void Telas::menuAdmin(SistemaLogin *sistema)
             {
                 int opcaoEditarDados;
                 do
-                {
+                {   
+                    // Menu de edição de dados do mecânico selecionado
                     cout << "----- EDITAR DADOS -----" << endl;
                     cout << "Para voltar digite 0" << endl;
                     cout << "1. Editar nome" << endl;
@@ -697,6 +704,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
                         string nome, cpf, telefone, email, login, senha;
                         switch (opcaoEditarDados)
                         {
+                        // Edição de dados do mecânico selecionado conforme a opção escolhida pelo administrador
                         case 1:
                             cout << "Digite o novo nome: ";
                             cin >> nome;
@@ -748,7 +756,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
 
             break;
         case 3:
-            // string loginV, senhaV, nomeV, cpfV, telefoneV, emailV;
+            // Adição de vendedor ao sistema
             cout << "Digite o nome do vendedor: ";
             cin >> nomeV;
             cout << "Digite o CPF do vendedor: ";
@@ -765,7 +773,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
             cout << "Vendedor adicionado com sucesso!" << endl;
             break;
         case 4:
-            // string loginM, senhaM, nomeM, cpfM, telefoneM, emailM;
+            // Adição de mecânico ao sistema 
             cout << "Digite o nome do mecânico: ";
             cin >> nomeM;
             cout << "Digite o CPF do mecânico: ";
@@ -782,6 +790,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
             cout << "Mecânico adicionado com sucesso!" << endl;
             break;
         case 5:
+            // Remoção de vendedor do sistema 
             int opcaoRemoverV;
             for (int i = 0; i < sistema->getQuantosVendedores(); i++)
             {
@@ -800,6 +809,7 @@ void Telas::menuAdmin(SistemaLogin *sistema)
             }
             break;
         case 6:
+            // Remoção de mecânico do sistema
             int opcaoRemoverM;
             for (int i = 0; i < sistema->getQuantosMecanicos(); i++)
             {

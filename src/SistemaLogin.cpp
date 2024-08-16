@@ -113,27 +113,28 @@ void SistemaLogin::preenccherClientesOrdem()
     Clientes* cliente2 = new Clientes(2,"Maria","123.456.789-10","(11) 99999-9999","gmail","123","123","123","123","123","123");
     Clientes* cliente3 = new Clientes(3,"José","123.456.789-10","(11) 99999-9999","gmail","123","123","123","123","123","123");
     Clientes* cliente4 = new Clientes(4,"Ana","123.456.789-10","(11) 99999-9999","gmail","123","123","123","123","123","123");
-    
+    //Adiciona os clientes ao vetor de clientes
     clientes.push_back(cliente1);
     clientes.push_back(cliente2);
     clientes.push_back(cliente3);
     clientes.push_back(cliente4);
-
+    //Criação de veículos
     cliente1->addVeiculo(new Veiculos(1,"11111","Fiat","Uno","preta","2009",12000,"alcool"));
     cliente2->addVeiculo(new Veiculos(2,"22222","Fiat","Uno","preta","2009",12000,"alcool"));
     cliente3->addVeiculo(new Veiculos(3,"33333","Fiat","Uno","preta","2009",12000,"alcool"));
     cliente4->addVeiculo(new Veiculos(4,"44444","Fiat","Uno","preta","2009",12000,"alcool"));
-    
+    //Criação de ordens de serviço
     OrdemServico *ordem1 = new OrdemServico(1, "2022-01-01", "Reparo no motor", "Pendente", "00", "11111", "João");
     OrdemServico *ordem2 = new OrdemServico(2, "2022-01-01", "Reparo no motor", "Pendente", "00", "22222", "Maria");
     OrdemServico *ordem3 = new OrdemServico(3, "2022-01-01", "Reparo no motor", "Pendente", "00", "33333", "José");
     OrdemServico *ordem4 = new OrdemServico(4, "2022-01-01", "Reparo no motor", "Pendente", "00", "44444", "Ana");
 
-    
+    //Adiciona as ordens de serviço ao vetor de ordens de serviço
     servicos.push_back(ordem1);
     servicos.push_back(ordem2);
     servicos.push_back(ordem3);
     servicos.push_back(ordem4);
+    
 
     delete cliente1;
     delete cliente2;
@@ -143,7 +144,7 @@ void SistemaLogin::preenccherClientesOrdem()
     delete ordem2;
     delete ordem3;
     delete ordem4;
-    
+    //Deleta os clientes e ordens de serviço
 
 
 }
