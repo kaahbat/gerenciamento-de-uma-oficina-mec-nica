@@ -20,7 +20,8 @@ public:
     );
     ~Mecanicos();
     string getTipo() const override;
-    
+    vector<OrdemServico*> getOrdemServico();
+    int getQuantosOrdemServico();
     
     
 };

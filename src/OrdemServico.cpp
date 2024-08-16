@@ -1,80 +1,98 @@
 #include "OrdemServico.hpp"
 
 
-OrdemServico::OrdemServico(int id, string data, string descricao)
+OrdemServico::OrdemServico(int id, string data, string descricao, string status, string valor, string veiculo, string cliente)
 {
     this->id = id;
     this->data = data;
     this->descricao = descricao;
+    this->status = status;
+    this->valor = valor;
+    this->veiculo = veiculo;
+    this->cliente = cliente;
 }
+
 
 OrdemServico::~OrdemServico()
 {
 }
 
-void OrdemServico::addServico(const Servicos &servico)
+int OrdemServico::getId()
+{
+    return this->id;
+}
+
+string OrdemServico::getData()
+{
+    return this->data;
+}
+
+string OrdemServico::getDescricao()
+{
+    return this->descricao;
+}
+
+string OrdemServico::getStatus()
+{
+    return this->status;
+}
+
+string OrdemServico::getValor()
+{
+    return this->valor;
+}
+
+string OrdemServico::getVeiculo()
+{
+    return this->veiculo;
+}
+
+string OrdemServico::getCliente()
+{
+    return this->cliente;
+}
+
+void OrdemServico::setId(int id)
+{
+    this->id = id;
+}
+
+void OrdemServico::setData(string data)
+{
+    this->data = data;
+}
+
+void OrdemServico::setDescricao(string descricao)
+{
+    this->descricao = descricao;
+}
+
+void OrdemServico::setStatus(string status)
+{
+    this->status = status;
+}
+
+void OrdemServico::setValor(string valor)
+{
+    this->valor = valor;
+}
+
+void OrdemServico::setVeiculo(string veiculo)
+{
+    this->veiculo = veiculo;
+}
+
+void OrdemServico::setCliente(string cliente)
+{
+    this->cliente = cliente;
+}
+
+void OrdemServico::addPeca(string peca)
+{
+    this->pecas.push_back(peca);
+}
+
+void OrdemServico::addServico(string servico)
 {
     this->servicos.push_back(servico);
 }
-
-void OrdemServico::removeServico(int id)
-{
-    for (size_t i = 0; i < this->servicos.size(); i++)
-    {
-        if (this->servicos[i].getId() == id)
-        {
-            this->servicos.erase(this->servicos.begin() + i);
-            break;
-        }
-    }
-}
-
-vector<Servicos> OrdemServico::getServicos()
-{
-    return vector<Servicos>();
-}
-
-bool OrdemServico::execultarOrdemServico()
-{
-    for (size_t i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
-    {
-        this->servicos[i].execultarServico();//execulta o servico
-        
-    };
-    return true;
-
-}
-
-bool OrdemServico::finalizarOrdemServico()
-{
-    for (size_t i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
-    {
-        this->servicos[i].finalizarServico();//finaliza o servico
-        
-    };
-    return true;
-}
-
-bool OrdemServico::cancelarOrdemServico()
-{
-    for (size_t i = 0; i < this->servicos.size(); i++)//percorre o vetor de servicos
-    {
-        this->servicos[i].cancelarServico();//cancela o servico
-        
-    };
-    return true;
-}
-
-void OrdemServico::print()
-{
-    cout << "ID: " << this->id << endl;
-    cout << "Data: " << this->data << endl;
-    cout << "Descricao: " << this->descricao << endl;
-    cout << "Servicos: " << endl;
-    for (size_t i = 0; i < this->servicos.size(); i++)
-    {
-        this->servicos[i].print();
-    }
-
-}
-

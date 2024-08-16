@@ -9,30 +9,16 @@ Vendedores::~Vendedores() {
 
 }
 
-void Vendedores::addCliente(const Clientes & cliente)
-{
-    clientes.push_back(cliente);
-}
 
-void Vendedores::addOrdemServico(const OrdemServico & ordemServico)
-{
-    servicos.push_back(ordemServico);
-}
-
-
-vector<Clientes> Vendedores::getClientes()
-{
-    return vector<Clientes>();
-}
-
-vector<OrdemServico> Vendedores::getOrdemServico()
-{
-    return vector<OrdemServico>();
-}
 
 int Vendedores::getQuantosClientes()
 {
     return clientes.size();
+}
+
+int Vendedores::getQuantosOrdemServico()
+{
+    return servicos.size();
 }
 
 void Vendedores::removeCliente(int id)
@@ -49,3 +35,27 @@ string Vendedores::getTipo() const
 {
     return "Vendedor";
 }
+
+void Vendedores::addCliente(Clientes *cliente)
+{
+    clientes.push_back(cliente);
+}
+
+void Vendedores::addOrdemServico(OrdemServico *ordem)
+{
+    servicos.push_back(ordem);
+}
+
+vector<Clientes *> Vendedores::getClientes()
+{
+    return clientes;
+}
+
+vector<OrdemServico *> Vendedores::getOrdemServico()
+{
+    return servicos;
+}
+
+
+
+

@@ -18,7 +18,7 @@ private:
     string estado;
     string cep;
     string numero;
-    vector<Veiculos> veiculos; // Relacionamento com veiculos pois um cliente pode ter vários veículos
+    vector<Veiculos*> veiculos; // Relacionamento com veiculos pois um cliente pode ter vários veículos
 
 
 public:
@@ -48,7 +48,7 @@ public:
     void setEstado(const string& estado);
     void setCep(const string& cep);
     void setNumero(const string& numero);
-    void addVeiculo(const Veiculos& veiculo);
+    void addVeiculo(Veiculos* veiculo);
 
     int getId() const;
     string getNome() const;
@@ -61,7 +61,12 @@ public:
     string getEstado() const;
     string getCep() const;
     string getNumero() const;
+
+    vector<Veiculos*> getVeiculos() const;
+    int getQuantosVeiculos();
+
+
+
     void print();
-    void printVeiculos();
 
 };

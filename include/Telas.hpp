@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <limits>
 using namespace std;
 
 #include "../include/Funcionario.hpp"
@@ -11,6 +11,7 @@ using namespace std;
 #include "../include/Vendedores.hpp"
 #include "../include/SistemaLogin.hpp"
 #include "../include/OrdemServico.hpp"
+
 
 
 class Telas {
@@ -25,10 +26,11 @@ public:
     void menuClientes();
     void menuVeiculos();
     void menuFuncionarios();
-    void menuMecanicos();
-    void menuVendedores( SistemaLogin* sistema, Vendedores* vendedor);
+    void menuMecanicos( Mecanicos* mecanico);
+    void menuVendedores(Vendedores* vendedor);
     void menuAdmin(SistemaLogin* sistema);
     void menuLogin();
+    string lerString();
 
 
 

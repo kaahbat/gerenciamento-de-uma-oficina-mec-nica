@@ -10,6 +10,16 @@ string Mecanicos::getTipo() const
      return "Mecanico";
 }
 
+vector<OrdemServico *> Mecanicos::getOrdemServico()
+{
+     return servicos;
+}
+
+int Mecanicos::getQuantosOrdemServico()
+{
+    return servicos.size();
+}
+
 Mecanicos::~Mecanicos()
 {
 }

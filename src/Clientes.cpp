@@ -65,6 +65,11 @@ void Clientes::setNumero(const string& numero) {
     this->numero = numero;
 }
 
+void Clientes::addVeiculo(Veiculos *veiculo)
+{
+    veiculos.push_back(veiculo);
+}
+
 // Getters
 int Clientes::getId() const {
     return id;
@@ -110,6 +115,18 @@ string Clientes::getNumero() const {
     return numero;
 }
 
+vector<Veiculos *> Clientes::getVeiculos() const
+{
+    return veiculos;
+}
+
+int Clientes::getQuantosVeiculos()
+{
+    return veiculos.size();
+}
+
+
+
 void Clientes::print() {
     cout << " Cliente: " << id << endl;
     cout << "Nome: " << nome << endl;
@@ -122,14 +139,4 @@ void Clientes::print() {
     cout << "Estado: " << estado << endl;
     cout << "CEP: " << cep << endl;
     cout << "Numero: " << numero << endl;
-}
-
-void Clientes::addVeiculo(const Veiculos& veiculo) {
-    veiculos.push_back(veiculo);
-}
-
-void Clientes::printVeiculos() {
-    for (auto veiculo : veiculos) {
-        veiculo.print();
-    }
 }

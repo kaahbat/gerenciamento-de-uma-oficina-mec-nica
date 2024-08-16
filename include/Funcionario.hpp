@@ -12,9 +12,9 @@ class Funcionario {
 protected:
     string login;
     string senha;
-    vector<Clientes> clientes;
-    vector<OrdemServico> servicos;   
-    
+    vector<Clientes*> clientes;
+    vector<OrdemServico*> servicos;   
+
 private:
     int id;
     string nome;

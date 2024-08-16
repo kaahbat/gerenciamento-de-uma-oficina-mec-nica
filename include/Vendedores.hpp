@@ -24,12 +24,14 @@ public:
     );
     ~Vendedores();
     string getTipo() const override;
+    void addCliente(Clientes* cliente);
+    void addOrdemServico(OrdemServico* ordem);
+    vector<Clientes*> getClientes();
+    vector<OrdemServico*> getOrdemServico();
     
-    void addCliente(const Clientes& cliente);
-    void addOrdemServico(const OrdemServico& ordemServico);
-    vector<Clientes> getClientes();
-    vector<OrdemServico> getOrdemServico();
+    
     int getQuantosClientes();
+    int getQuantosOrdemServico();
     void removeCliente(int id);
     void removeOrdemServico(int id);
 
